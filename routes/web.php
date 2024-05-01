@@ -23,6 +23,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/teslogin', function () {
+    return view('login');
+})->name('teslogin');
+
+Route::get('/tesregister', function () {
+    return view('register');
+})->name('tesregister');
+
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboard');
 })->name('dashboard-adminpage');

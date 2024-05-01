@@ -1,0 +1,162 @@
+body, h1, h2, h3, h4, h5, h6, p, label, input, button, a {
+    font-family: 'Montaga', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #333232 0%, #484848 100%);
+    margin: 0;
+    padding: 0;
+}
+
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50%;
+    /* Lebar 50% dari layar */
+    background-size: contain;
+    background-image: url(../assets/img_login.png);
+    background-position: left;
+    /* Letakkan gambar di kiri */
+    z-index: 1;
+    /* Opacity 80% */
+    position: relative; /* Tambahkan */
+}
+
+/* Menambahkan overlay dengan opacity */
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna hitam dengan opacity 0.5 */
+    z-index: 2; /* Menempatkan overlay di atas gambar */
+}
+
+.logo-barber {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%; /* Lebar maksimum sesuai dengan ukuran parent */
+    max-height: 100%; /* Tinggi maksimum sesuai dengan ukuran parent */
+    z-index: 2; /* Menempatkan logo di atas bg-image */
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 50%;
+    /* Lebar 50% dari layar */
+    overflow: auto;
+    /* Mengaktifkan scroll jika konten lebih besar dari container */
+    padding: 20px;
+    /* Menambahkan padding agar konten tidak menempel ke tepi */
+    /* background-color: var(#484848, linear-gradient(180deg, #333232 0%, #484848 100%)); */
+    background: linear-gradient(#333232 0%, #484848 100%);
+}
+
+.nav-login-register {
+    display: inline-flex;
+    padding: 2vh 1vw;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-top: 5vh;
+    /* Menambahkan margin atas */
+    margin-bottom: 5vh;
+    /* Menambahkan margin bawah */
+    font-family: 'Montaga', sans-serif;
+    /* Mengatur font Montaga */
+    font-size: 1.8vw;
+    /* Mengatur ukuran teks */
+    color: #fffdfd;
+    text-decoration: none;
+}
+
+/* CSS untuk tombol login ketika dihover */
+.nav-login-register:hover {
+    color: #E0AA3E;
+    text-decoration: none; /* Menghapus garis bawah */
+    background-image: linear-gradient(to right, #F9F295 0%, #EDCE6A 50%, #E0AA3E 75%, #B88A44 100%);
+    /* Mengatur gradien warna pada garis bawah */
+    background-repeat: no-repeat;
+    background-size: 100% 5px; /* Menetapkan ukuran gradien pada garis bawah */
+    background-position: 0 100%; /* Menempatkan gradien pada bagian bawah tombol */
+    border-bottom: 3px solid transparent;
+}
+
+/* CSS untuk tombol login ketika ditekan */
+.nav-login-register.active {
+    color: #E0AA3E;
+    text-decoration: none; /* Menghapus garis bawah */
+    background-image: linear-gradient(to right, #F9F295 0%, #EDCE6A 50%, #E0AA3E 75%, #B88A44 100%);
+    /* Mengatur gradien warna pada garis bawah */
+    background-repeat: no-repeat;
+    background-size: 100% 5px; /* Menetapkan ukuran gradien pada garis bawah */
+    background-position: 0 100%; /* Menempatkan gradien pada bagian bawah tombol */
+}
+
+/* CSS untuk label email dan kata sandi */
+label {
+    color: #fff; /* Warna teks putih */
+    font-size: 1.5vw; /* Ukuran font yang diperkecil */
+}
+
+/* CSS untuk input email dan kata sandi */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-size: 1.4vw; /* Ukuran font yang diperkecil */
+    color: #ffffff; /* Warna teks putih */
+    background: linear-gradient(#333232 0%, #484848 100%);
+    border-color: rgba(255, 217, 0, 0.573); /* Warna border gold */
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Warna placeholder menjadi samar */
+}
+
+/* CSS untuk style input yang aktif */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    color: #ffffff;
+    box-shadow: none; /* Menghilangkan shadow saat input aktif */
+    border-color: gold; /* Warna border gold saat input aktif */
+}
+
+input:-webkit-autofill {
+    background-image: linear-gradient(#333232 0%, #484848 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-submit {
+    background: linear-gradient(
+        90deg,
+        #ae8625 0%,
+        #b79332 33%,
+        #d3bb58 66%,
+        #f7ef8a 100%
+    );
+    font-size: 1.4vw; /* Ukuran font yang diperkecil */
+}
+
+p {
+    color: white;
+    font-size: 1.2vw;
+}
+
+.register-link {
+    background: linear-gradient(90deg, #ffcc00 0%, #ffd633 33%, #ffe066 66%, #ffea99 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2vw;
+}

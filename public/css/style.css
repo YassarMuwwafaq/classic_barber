@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background: linear-gradient(180deg, #333232 2.4%, #484848 91.9%);
     /* width: 1310px;
     height: 103px;
     margin-left: auto;
@@ -21,14 +21,16 @@ ul li a {
     line-height: normal;
 }
 
-.icon {
-    display: inline-flex;
+.btn-login {
+    display: flex;
+    width: 180px;
+    height: 56px;
+    padding: 10px;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-}
+    gap: 10px;
+    flex-shrink: 0;
 
-.btn-login {
     border-radius: 10px;
     background: linear-gradient(
         90deg,
@@ -69,9 +71,6 @@ ul li a {
 }
 
 /* home */
-#home {
-    height: 100%;
-}
 .row {
     display: flex;
     align-items: center;
@@ -140,48 +139,88 @@ h3 {
 }
 
 /* about */
-#about {
+#services {
     height: 100vh;
     display: flex;
-    align-items: center;
 }
 
-.row {
-    display: flex;
-    align-items: center;
+.imgservices {
+    z-index: 0;
+    position: absolute;
 }
 
-p {
-    color: white;
-    text-align: justify;
+.title-services {
+    color: #fffdfd;
+    text-align: center;
     font-family: Montaga;
-    font-size: 32px;
+    font-size: 36px;
     font-style: normal;
     font-weight: 400;
-    line-height: 50px; /* 156.25% */
-    letter-spacing: 3.2px;
+    line-height: 85px; /* 236.111% */
+    letter-spacing: 3.6px;
+    z-index: 1;
 }
 
-span {
-    padding: 10px;
+.text-services {
+    color: #fffdfd;
+    text-align: center;
+    font-family: Nunito;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2.4px;
+    /* z-index: 1; */
+}
+
+.services {
+    display: block;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    text-align: center;
+}
+
+/* hairstyle */
+#hairstyle {
+    margin-top: 5%;
+}
+.title {
+    width: 845px;
+    height: 100px;
     flex-shrink: 0;
-    border-radius: 20px;
+
+    border-radius: 0px 24px 0px 0px;
     background: linear-gradient(
         90deg,
         #ae8625 0%,
-        #b79332 48.4%,
-        #d3bb58 84.4%,
+        #b79332 38.4%,
+        #d3bb58 97.4%,
         #f7ef8a 100%
     );
 }
 
-.icon-about {
-    margin-top: 120px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 30px;
+.title p {
+    color: #fff;
+    text-align: center;
+    font-family: Montaga;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.2px;
+}
+
+/* Hairstyle */
+.card {
+    background: transparent;
+    border: none;
+    justify-content: center;
+}
+
+/* footer */
+
+.footer {
+    height: 457px;
+    flex-shrink: 0;
+
+    background: var(--Black, #262626);
 }

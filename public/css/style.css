@@ -1,27 +1,34 @@
 body {
-    background: linear-gradient(180deg, #333232 2.4%, #484848 91.9%);
-    /* width: 1310px;
-    height: 103px;
-    margin-left: auto;
-    margin-right: auto; */
+    background-color: #a3353b;
 }
 
+header {
+    position: relative;
+    z-index: 10;
+}
+
+/* navbar */
 .navbar {
-    background-color: transparent;
-    color: white;
-}
-
-ul li a {
-    color: #fffcfc;
     text-align: center;
     font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding: 0;
+    background-color: black;
 }
 
-.btn-login {
+a.nav-link {
+    color: #fff;
+}
+
+ul,
+li {
+    gap: 15px;
+}
+
+.btn-book {
     display: flex;
     width: 180px;
     height: 56px;
@@ -31,23 +38,10 @@ ul li a {
     gap: 10px;
     flex-shrink: 0;
 
-    border-radius: 10px;
-    background: linear-gradient(
-        90deg,
-        #ae8625 0%,
-        #b79332 42.4%,
-        #d3bb58 95.4%,
-        #f7ef8a 100%
-    );
+    border-radius: 11px;
+    background: #a3353b;
 
-    width: 111px;
-    height: 56px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    color: #343232;
+    color: #fff;
     text-align: center;
     font-family: "Noto Serif Gujarati";
     font-size: 25px;
@@ -57,170 +51,74 @@ ul li a {
     letter-spacing: 1.25px;
 }
 
-.btn-book {
-    border-radius: 10px;
-    background-color: #A3353B;
-    color: white; /* Ubah warna tulisan menjadi merah */
-    padding: 10px 20px;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.25px;
+/* main */
+
+.jumbotron-full {
+    background-image: url("../assets/jumbotron.png");
+    background-size: cover;
+    text-align: center; /* Center align text */
+    position: relative;
 }
 
-/* home */
-.row {
+.color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(150, 0, 0, 0.5); /* Warna overlay merah transparan */
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 80px;
 }
 
 h1 {
-    color: #fffdfd;
-    font-family: Montaga;
-    font-size: 55px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 85px; /* 154.545% */
-    letter-spacing: 5.5px;
-}
-
-h3 {
-    color: #fff9f9;
-    font-family: Montaga;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 85px; /* 265.625% */
-    letter-spacing: 3.2px;
-}
-
-.btn-home {
-    display: flex;
-    width: 246px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    border-radius: 20px;
-    background: linear-gradient(
-        90deg,
-        #ae8625 0%,
-        #b79332 33%,
-        #d3bb58 66%,
-        #f7ef8a 100%
-    );
-
-    color: var(--White, #eaeaea);
-    text-align: center;
-    font-family: Montaga;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.25px;
-}
-
-.location {
-    margin-top: 5px;
-    color: var(--White, #eaeaea);
-    text-align: center;
-    font-family: Montaga;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.25px;
-    margin-left: 15px;
-    align-items: center;
-}
-
-/* about */
-#services {
-    height: 100vh;
-    display: flex;
-}
-
-.imgservices {
-    z-index: 0;
-    position: absolute;
-}
-
-.title-services {
-    color: #fffdfd;
-    text-align: center;
-    font-family: Montaga;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 85px; /* 236.111% */
-    letter-spacing: 3.6px;
-    z-index: 1;
-}
-
-.text-services {
-    color: #fffdfd;
-    text-align: center;
-    font-family: Nunito;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 2.4px;
-    /* z-index: 1; */
-}
-
-.services {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* hairstyle */
-#hairstyle {
-    margin-top: 5%;
-}
-.title {
-    width: 845px;
-    height: 100px;
-    flex-shrink: 0;
-
-    border-radius: 0px 24px 0px 0px;
-    background: linear-gradient(
-        90deg,
-        #ae8625 0%,
-        #b79332 38.4%,
-        #d3bb58 97.4%,
-        #f7ef8a 100%
-    );
-}
-
-.title p {
     color: #fff;
-    text-align: center;
-    font-family: Montaga;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 3.2px;
 }
 
-/* Hairstyle */
-.card {
-    background: transparent;
-    border: none;
-    justify-content: center;
+/* DESKTOP VERSION (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        background-color: #fff;
+    }
+
+    a.nav-link {
+        margin: 5px;
+    }
+
+    a.nav-link:hover {
+        font-weight: 600;
+    }
+
+    .jumbotron-full {
+        height: 971px;
+        margin-top: -165px;
+    }
+
+    .color-overlay {
+        height: 971px;
+    }
+
+    .logoClassic {
+        height: 1200px;
+        width: 1200px;
+        margin-top: 10%;
+    }
 }
 
-/* footer */
+/* Mobile */
 
-.footer {
-    height: 457px;
-    flex-shrink: 0;
+@media (max-width: 768px) {
+    .jumbotron-full {
+        width: 100%;
+        height: 30vh; /* Adjust padding for smaller screens */
+    }
 
-    background: var(--Black, #262626);
+    .color-overlay {
+        height: 30vh;
+    }
+    .logoClassic {
+        height: 130px;
+        width: 130px;
+    }
 }

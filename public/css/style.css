@@ -1,10 +1,10 @@
 body {
-    background-color: #a3353b;
+    background-color: #000000;
 }
 
 header {
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 /* navbar */
@@ -16,7 +16,6 @@ header {
     font-weight: 400;
     line-height: normal;
     padding: 0;
-    background-color: black;
 }
 
 a.nav-link {
@@ -25,7 +24,7 @@ a.nav-link {
 
 ul,
 li {
-    gap: 15px;
+    gap: 5px;
 }
 
 .btn-book {
@@ -49,6 +48,24 @@ li {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.25px;
+
+    /* Menambahkan efek transisi */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek hover saat kursor di atas tombol */
+.btn-book:hover {
+    background-color: #87282e; /* Ubah warna background saat hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan efek bayangan */
+    border-color: #fff;
+    border: 2px;
+}
+
+/* Efek klik saat tombol ditekan */
+.btn-book:active {
+    transform: translateY(
+        2px
+    ); /* Pindahkan tombol sedikit ke bawah saat ditekan */
 }
 
 /* main */
@@ -58,60 +75,135 @@ li {
     background-size: cover;
     text-align: center; /* Center align text */
     position: relative;
+    z-index: 50;
 }
 
-.color-overlay {
+/* .color-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(150, 0, 0, 0.5); /* Warna overlay merah transparan */
+    height: 50%;
+    background-color: rgba(150, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 h1 {
     color: #fff;
 }
 
+/* carousel */
+.carousel {
+    position: relative;
+    z-index: 100;
+}
+
+.kenapa {
+    /* Atur gambar background dan efek cover */
+    background-size: cover; /* Efek cover untuk memenuhi area section */
+    background-position: center; /* Posisi gambar di tengah section */
+    background-repeat: no-repeat; /* Hindari pengulangan gambar */
+    z-index: 60;
+    position: relative;
+    width: 100%;
+    background-color: black;
+}
+
+.pelayanan {
+    position: relative;
+    z-index: 61;
+}
+
+.lokasi {
+    position: relative;
+}
+
+.customer {
+    position: relative;
+    z-index: 63;
+}
+
+/* Optional: Stylize text inside section */
+
 /* DESKTOP VERSION (desktops, 992px and up) */
 @media (min-width: 992px) {
     body {
-        background-color: #fff;
+        background-color: #000000;
     }
 
     a.nav-link {
         margin: 5px;
     }
 
+    a.nav-link:active {
+        font-weight: 600;
+        color: #ffffff;
+    }
     a.nav-link:hover {
         font-weight: 600;
+        color: #a3353b;
     }
 
     .jumbotron-full {
-        height: 971px;
+        height: 970px;
         margin-top: -165px;
     }
 
-    .color-overlay {
-        height: 971px;
+    .logoClassic {
+        height: 900px;
+        width: 1000px;
+        margin-top: 100px;
     }
 
-    .logoClassic {
-        height: 1200px;
-        width: 1200px;
-        margin-top: 10%;
+    /* carousel */
+
+    .carousel {
+        position: relative;
+        margin-top: -120px;
+    }
+
+    /* kenapa */
+    .kenapa {
+        /* Atur gambar background dan efek cover */
+
+        margin-top: 120px;
+        height: 170vh;
+    }
+
+    .kenapa .row {
+        margin-top: 120px;
+    }
+
+    .pelayanan {
+        height: 150vh;
+        margin-top: -80px;
+    }
+
+    .lokasi {
+        z-index: 62;
+        position: relative;
+    }
+
+    .booking {
+        z-index: 63;
+        position: relative;
+        height: 320px;
+        margin-top: -4%;
     }
 }
 
 /* Mobile */
 
 @media (max-width: 768px) {
+    .navbar {
+        background-color: #3adee1;
+    }
+
     .jumbotron-full {
         width: 100%;
-        height: 30vh; /* Adjust padding for smaller screens */
+        height: 35vh;
     }
 
     .color-overlay {
@@ -120,5 +212,15 @@ h1 {
     .logoClassic {
         height: 130px;
         width: 130px;
+    }
+
+    /* caraousel */
+    .carousel {
+        margin-top: -35px;
+    }
+
+    /* kenapa */
+    .kenapa {
+        margin-top: 35px;
     }
 }

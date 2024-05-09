@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+
+* {
+    font-family: "montserrat";
+}
+
+/* CSS Halaman booking */
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-image: url(../assets/bg_booking.jpg);
+    background-position: right;
+    z-index: -1; /* Meletakkan latar belakang di bawah konten */
+}
+
+/* CSS untuk membuat navbar transparan */
+.navbar {
+    background-color: transparent !important; 
+    border-bottom: none !important; 
+    box-shadow: none !important; 
+    padding-top: 5px; /* Atur padding atas */
+    padding-bottom: 10px; /* Atur padding bawah */
+}
+
+.btn-logout {
+    border-radius: 11px;
+    border: 1px solid #FFF;
+    background: #434B69;
+    padding: 10px 30px;
+    color: #FFF;
+}
+
+.btn-div {
+    display: flex;
+    width: 202px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column; /* Mengatur agar elemen di dalamnya tersusun secara vertikal */
+    align-items: center; /* Menengahkan elemen secara horizontal */
+    gap: 20px; /* Jarak antara elemen */
+}
+
+.section .cabang {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0); /* Transparan dengan tingkat opasitas 50% */
+    border: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-top {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* Menambahkan bayangan */
+}
+
+.btn-primary {
+    background-color: #434B69;
+    border-color: white;
+    padding: 10px 40%;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: #FFF;
+}

@@ -8,13 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css_login/style.css">
+    <link rel="stylesheet" href="css/style_LogReg.css">
 </head>
 
 <body>
     <div class="bg-image">
         <div class="bg-overlay"></div> <!-- Tambahkan overlay di sini -->
-        <img src="{{ asset('assets/LogoPutih.png') }}" alt="Logo Barber" class="logo-barber">
+        <img src="{{ asset('assets/logo.png') }}" alt="Logo Barber" class="logo-barber">
     </div>
     <div class="container">
         <div class="mb-3 text-center">

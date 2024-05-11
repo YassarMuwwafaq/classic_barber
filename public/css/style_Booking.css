@@ -66,6 +66,7 @@
 
 .card-img-top {
     border-radius: 10px;
+    border: 5px solid #434B69;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* Menambahkan bayangan */
 }
 
@@ -78,4 +79,62 @@
 .btn-primary:hover {
     background-color: transparent;
     border-color: #FFF;
+}
+
+/* style css booking layanan */
+.section-layanan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cabang-layanan {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    gap: 60px;
+    width: 100%; /* Menambahkan lebar untuk memastikan setiap card berada dalam satu baris */
+    max-width: 800px; /* Sesuaikan dengan kebutuhanmu */
+    margin-top: 20px; /* Jarak antara judul dan cards */
+}
+
+.card-layanan {
+    flex-basis: calc(20% - 50px); /* 20% - 50px untuk memberi jarak antara card */
+}
+
+.card-layanan:hover {
+    background-color: #434b695e;
+    transform: scale(1.05);
+    transition: 0.3s;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.card-layanan img {
+    width: 160px;
+    height: 160px;
+}
+
+.btn-panah {
+    position: absolute;
+    left: 15%;
+    top: 27%;
+}
+
+.btn-panah button {
+    background-color: transparent;
+    border: none;
+}
+
+/* Untuk layar yang lebih kecil, atur ulang lebar card agar mereka turun ke bawah */
+@media screen and (max-width: 600px) {
+    .card-layanan {
+        flex-basis: calc(50% - 50px); /* 50% - 50px untuk hanya menampilkan 2 card dalam satu baris */
+    }
 }

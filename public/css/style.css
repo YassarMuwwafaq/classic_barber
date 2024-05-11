@@ -1,77 +1,46 @@
 body {
-    background-color: black;
-    /* width: 1310px;
-    height: 103px;
-    margin-left: auto;
-    margin-right: auto; */
+    background-color: #000000;
 }
 
+header {
+    position: relative;
+    z-index: 100;
+}
+
+/* navbar */
 .navbar {
-    background-color: transparent;
-    color: white;
-}
-
-ul li a {
-    color: #fffcfc;
     text-align: center;
     font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding: 0;
 }
 
-.icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+a.nav-link {
+    color: #fff;
 }
 
-.btn-login {
-    border-radius: 10px;
-    background: linear-gradient(
-        90deg,
-        #ae8625 0%,
-        #b79332 42.4%,
-        #d3bb58 95.4%,
-        #f7ef8a 100%
-    );
-
-    width: 111px;
-    height: 56px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    color: #343232;
-    text-align: center;
-    font-family: "Noto Serif Gujarati";
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.25px;
+ul,
+li {
+    gap: 5px;
 }
 
 .btn-book {
-    border-radius: 10px;
-    border: 1px solid #fffbfb;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    background: transparent;
-    color: white;
-    display: inline-flex;
-    padding: 10px 10px 7px 10px;
+    display: flex;
+    width: 180px;
+    height: 56px;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 149px;
-    height: 56px;
-    padding: 10px 10px 7px 10px;
-    justify-content: center;
+    flex-shrink: 0;
 
-    color: #fffbfb;
+    border-radius: 11px;
+    background: #a3353b;
+
+    color: #fff;
     text-align: center;
     font-family: "Noto Serif Gujarati";
     font-size: 25px;
@@ -79,122 +48,179 @@ ul li a {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.25px;
+
+    /* Menambahkan efek transisi */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* home */
-#home {
-    height: 100%;
+/* Efek hover saat kursor di atas tombol */
+.btn-book:hover {
+    background-color: #87282e; /* Ubah warna background saat hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan efek bayangan */
+    border-color: #fff;
+    border: 2px;
 }
-.row {
+
+/* Efek klik saat tombol ditekan */
+.btn-book:active {
+    transform: translateY(
+        2px
+    ); /* Pindahkan tombol sedikit ke bawah saat ditekan */
+}
+
+/* main */
+
+.jumbotron-full {
+    background-image: url("../assets/jumbotron.png");
+    background-size: cover;
+    text-align: center; /* Center align text */
+    position: relative;
+    z-index: 50;
+}
+
+/* .color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(150, 0, 0, 0.5); 
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 80px;
-}
+} */
 
 h1 {
-    color: #fffdfd;
-    font-family: Montaga;
-    font-size: 55px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 85px; /* 154.545% */
-    letter-spacing: 5.5px;
+    color: #fff;
 }
 
-h3 {
-    color: #fff9f9;
-    font-family: Montaga;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 85px; /* 265.625% */
-    letter-spacing: 3.2px;
+/* carousel */
+.carousel {
+    position: relative;
+    z-index: 100;
 }
 
-.btn-home {
-    display: flex;
-    width: 246px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    border-radius: 20px;
-    background: linear-gradient(
-        90deg,
-        #ae8625 0%,
-        #b79332 33%,
-        #d3bb58 66%,
-        #f7ef8a 100%
-    );
-
-    color: var(--White, #eaeaea);
-    text-align: center;
-    font-family: Montaga;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.25px;
+.kenapa {
+    /* Atur gambar background dan efek cover */
+    background-size: cover; /* Efek cover untuk memenuhi area section */
+    background-position: center; /* Posisi gambar di tengah section */
+    background-repeat: no-repeat; /* Hindari pengulangan gambar */
+    z-index: 60;
+    position: relative;
+    width: 100%;
+    background-color: black;
 }
 
-.location {
-    margin-top: 5px;
-    color: var(--White, #eaeaea);
-    text-align: center;
-    font-family: Montaga;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.25px;
-    margin-left: 15px;
-    align-items: center;
+.pelayanan {
+    position: relative;
+    z-index: 61;
 }
 
-/* about */
-#about {
-    height: 100vh;
-    display: flex;
-    align-items: center;
+.lokasi {
+    position: relative;
 }
 
-.row {
-    display: flex;
-    align-items: center;
+.customer {
+    position: relative;
+    z-index: 63;
 }
 
-p {
-    color: white;
-    text-align: justify;
-    font-family: Montaga;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 50px; /* 156.25% */
-    letter-spacing: 3.2px;
+/* Optional: Stylize text inside section */
+
+/* DESKTOP VERSION (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        background-color: #000000;
+    }
+
+    a.nav-link {
+        margin: 5px;
+    }
+
+    a.nav-link:active {
+        font-weight: 600;
+        color: #ffffff;
+    }
+    a.nav-link:hover {
+        font-weight: 600;
+        color: #a3353b;
+    }
+
+    .jumbotron-full {
+        height: 970px;
+        margin-top: -165px;
+    }
+
+    .logoClassic {
+        height: 900px;
+        width: 1000px;
+        margin-top: 100px;
+    }
+
+    /* carousel */
+
+    .carousel {
+        position: relative;
+        margin-top: -120px;
+    }
+
+    /* kenapa */
+    .kenapa {
+        /* Atur gambar background dan efek cover */
+
+        margin-top: 120px;
+        height: 170vh;
+    }
+
+    .kenapa .row {
+        margin-top: 120px;
+    }
+
+    .pelayanan {
+        height: 150vh;
+        margin-top: -80px;
+    }
+
+    .lokasi {
+        z-index: 62;
+        position: relative;
+    }
+
+    .booking {
+        z-index: 63;
+        position: relative;
+        height: 320px;
+        margin-top: -4%;
+    }
 }
 
-span {
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: linear-gradient(
-        90deg,
-        #ae8625 0%,
-        #b79332 48.4%,
-        #d3bb58 84.4%,
-        #f7ef8a 100%
-    );
-}
+/* Mobile */
 
-.icon-about {
-    margin-top: 120px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 30px;
+@media (max-width: 768px) {
+    .navbar {
+        background-color: #3adee1;
+    }
+
+    .jumbotron-full {
+        width: 100%;
+        height: 35vh;
+    }
+
+    .color-overlay {
+        height: 30vh;
+    }
+    .logoClassic {
+        height: 130px;
+        width: 130px;
+    }
+
+    /* caraousel */
+    .carousel {
+        margin-top: -35px;
+    }
+
+    /* kenapa */
+    .kenapa {
+        margin-top: 35px;
+    }
 }

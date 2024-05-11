@@ -31,6 +31,10 @@ Route::get('/tesregister', function () {
     return view('register');
 })->name('tesregister');
 
+Route::get('/bookingbarber', function () {
+    return view('bookingBarber');
+})->name('bookingBarber');
+
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboard');
 })->name('dashboard-adminpage');

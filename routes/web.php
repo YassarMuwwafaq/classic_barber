@@ -39,6 +39,10 @@ Route::get('/bookinglayanan', function () {
     return view('bookingLayanan');
 })->name('bookingLayanan');
 
+Route::get('/bookingartist', function () {
+    return view('bookingArtist');
+})->name('bookingArtist');
+
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboard');
 })->name('dashboard-adminpage');

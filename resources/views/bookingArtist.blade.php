@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>booking-barber</title>
+    <title>booking-Artist</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
@@ -54,6 +54,13 @@
                 /* Mengatur padding tombol untuk layar yang sangat kecil */
             }
         }
+
+        @media screen and (max-width: 600px) {
+            .card-layanan {
+                flex-basis: calc(50% - 50px);
+                /* 50% - 50px untuk hanya menampilkan 2 card dalam satu baris */
+            }
+        }
     </style>
 </head>
 
@@ -67,7 +74,7 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/logo.svg') }}" alt="Logo" width="180">
+                <img src="{{ asset('assets/logo.png') }}" alt="Logo" width="180">
             </a>
             <!-- Kalimat di tengah -->
             <span class="navbar-text text-white">
@@ -81,45 +88,33 @@
     </nav>
 
     {{-- section-1 --}}
-    <div class="section">
-        <h4 class="text-center mb-4 text-white">Silahkan pilih cabang</h4>
+    <div class="section-layanan">
+        <h4 class="text-center mb-3 text-white">Silahkan pilih service</h4>
         <!-- Memindahkan tulisan di atas card dan menengahkannya -->
-        <div class="cabang">
-            <!-- card-1 -->
-            <div class="card" style="width: 18rem;">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" class="card-img-top" alt="saya">
-                <div class="card-body">
-                    <h5 class="card-title text-white">Vol 1 Sunan Giri</h5>
-                    <a href="#" class="btn btn-primary">Pilih</a>
-                </div>
+        <div class="cabang-Artis">
+            {{-- card-1 --}}
+            <div class="card-artis">
+                <img src="{{ asset('assets/componentHairArtis/hairArtis1.svg') }}" alt="">
+                <h5 class="pt-3 text-white">Nama Hair Artist</h5>
+                <p class="text-white">Vol. 1</p>
             </div>
-            <!-- card-2 -->
-            <div class="card" style="width: 18rem;">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" class="card-img-top" alt="saya">
-                <div class="card-body">
-                    <h5 class="card-title text-white">Vol 1 Sunan Giri</h5>
-                    <a href="#" class="btn btn-primary">Pilih</a>
-                </div>
+            {{-- card-2 --}}
+            <div class="card-artis">
+                <img src="{{ asset('assets/componentHairArtis/hairArtis2.svg') }}" alt="">
+                <h5 class="pt-3 text-white">Nama Hair Artist</h5>
+                <p class="text-white">Vol. 1</p>
             </div>
-            <!-- card-3 -->
-            <div class="card" style="width: 18rem;">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" class="card-img-top" alt="saya">
-                <div class="card-body">
-                    <h5 class="card-title text-white">Vol 1 Sunan Giri</h5>
-                    <a href="#" class="btn btn-primary">Pilih</a>
-                </div>
-            </div>
-            <!-- card-4 -->
-            <div class="card" style="width: 18rem;">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" class="card-img-top" alt="saya">
-                <div class="card-body">
-                    <h5 class="card-title text-white">Vol 1 Sunan Giri</h5>
-                    <a href="#" class="btn btn-primary">Pilih</a>
-                </div>
+            {{-- card-3 --}}
+            <div class="card-artis">
+                <img src="{{ asset('assets/componentHairArtis/hairArtis3.svg') }}" alt="">
+                <h5 class="pt-3 text-white">Nama Hair Artist</h5>
+                <p class="text-white">Vol. 1</p>
             </div>
         </div>
+        <!-- Tambahkan lebih banyak carousel-item berisi tiga card di sini -->
     </div>
 
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

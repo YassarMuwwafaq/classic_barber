@@ -19,35 +19,31 @@
 
 /* CSS untuk membuat navbar transparan */
 .navbar {
-    background-color: transparent !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
-    padding-top: 5px; /* Atur padding atas */
-    padding-bottom: 10px; /* Atur padding bawah */
+    width: 100%;
 }
 
-.btn-logout {
-    border-radius: 11px;
-    border: 1px solid #fff;
-    background: #434b69;
-    padding: 10px 30px;
-    color: #fff;
+.container {
+    width: 70%;
+    color: white;
 }
 
-.btn-div {
-    display: flex;
-    width: 202px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.container .btn-logout {
+    padding: 10px 35px;
+    background-color: #434b69;
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
 }
 
+/* start Pilih cabang */
 .section {
     display: flex;
-    flex-direction: column; /* Mengatur agar elemen di dalamnya tersusun secara vertikal */
-    align-items: center; /* Menengahkan elemen secara horizontal */
-    gap: 20px; /* Jarak antara elemen */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section .cabang {
@@ -55,6 +51,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
+    margin-top: 20px;
 }
 
 .card {
@@ -64,46 +61,34 @@
         255,
         0
     ); /* Transparan dengan tingkat opasitas 50% */
+    margin-top: 5%;
     border: none;
     justify-content: center;
     align-items: center;
+    color: white;
+}
+
+.card img {
+    width: 70%;
 }
 
 .card:hover {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #434b695e;
     transform: scale(1.05);
     transition: 0.3s;
+    padding: 10px;
+    border-radius: 10px;
     box-shadow: 0 0 10px 0 white;
 }
 
-.card-body {
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-primary {
+.card button {
+    border: none;
+    border-radius: 10px;
     background-color: #434b69;
-    border-color: white;
-    padding: 10px 40%;
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    border-color: #fff;
+    padding: 5px 15%;
+    color: white;
 }
 
 /* style css booking layanan */
-.section-layanan {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .cabang-layanan {
     display: flex;
@@ -125,11 +110,11 @@
 }
 
 .card-layanan:hover {
-    background-color: #434b695e;
     transform: scale(1.05);
     transition: 0.3s;
     padding: 15px;
     border-radius: 10px;
+    box-shadow: 0 0 10px 0 white;
 }
 
 .card-layanan img {
@@ -149,7 +134,7 @@
     top: 27%;
 }
 
-.btn-panah button {
+.btn-panah a {
     background-color: transparent;
     border: none;
 }
@@ -164,20 +149,84 @@
 }
 
 /* CSS bookingArtist */
-.cabang-Artis {
+.cabang-artis {
+    display: inline-flex;
     justify-content: center;
-    text-align: center;
-    color: white;
-    gap: 60px;
-    width: 80%; /* Menambahkan lebar untuk memastikan setiap card berada dalam satu baris */
-    margin-top: 20px; /* Jarak antara judul dan cards */
-    border: 1px solid red;
+    width: 100%;
+    gap: 5%;
 }
 
 .card-artis {
-    margin-top: 5%;
-
-    border: 1px solid white;
     justify-content: center;
     text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.card-artis:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0;
+}
+
+/* CSS bookingArtisDetail */
+.cabang-artisDetail {
+    display: inline-flex;
+    width: 100%;
+}
+
+.card-artisDetail {
+    margin: 20px;
+    margin-left: 15%;
+    justify-content: center;
+    text-align: center;
+    width: 25%;
+    color: white;
+}
+
+.card-artisDetail img {
+    width: 100%;
+}
+
+.btn-booking {
+    background-color: #434b69;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    position: absolute;
+    top: 70%;
+    box-shadow: 0 0 10px 0 black;
+    border: none;
+}
+
+.banner-comment {
+    margin: 20px;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 10px 30px;
+    max-height: 65vh; /* Atur tinggi maksimal sesuai kebutuhan Anda */
+    overflow-y: auto; /* Menambahkan scroll vertikal */
+}
+
+.banner-comment::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.banner-comment {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.comment {
+    text-align: left;
+    margin-top: 5%;
+    padding: 25px 15px;
+    border-radius: 15px;
+    background-color: #d9d9d9ba;
+    color: var(--Black, #262626);
+    box-shadow: 0 0 5px 0 white;
 }

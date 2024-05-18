@@ -33,15 +33,19 @@ Route::get('/tesregister', function () {
 
 Route::get('/bookingbarber', function () {
     return view('bookingBarber');
-})->name('bookingBarber');
+})->name('bookingbarber');
 
 Route::get('/bookinglayanan', function () {
     return view('bookingLayanan');
-})->name('bookingLayanan');
+})->name('bookinglayanan');
 
 Route::get('/bookingartist', function () {
     return view('bookingArtist');
-})->name('bookingArtist');
+})->name('bookingartist');
+
+Route::get('/bookingartist-detail', function () {
+    return view('bookingArtistDetail');
+})->name('bookingartist-detail');
 
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboard');

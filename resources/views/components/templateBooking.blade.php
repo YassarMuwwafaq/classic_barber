@@ -19,7 +19,7 @@
     {{-- Navbar --}}
     <div class="navbar">
         <div class="container">
-            <img src="{{ asset('assets/logo.svg') }}" alt="">
+            <a href=""><img src="{{ asset('assets/logo.svg') }}" alt=""></a>
             <div class="status">STATUS : NAMA CUSTOMER 12/12/2012</div>
             <div class="btn-logout">Log Out</div>
         </div>

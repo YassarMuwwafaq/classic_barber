@@ -40,11 +40,13 @@ class LayananController extends Controller
         $request->validate([
             'barber_id' => 'required',
             'nama' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg',
+            'harga' => 'required',
+            'foto' => 'required|mimes:png,jpg,jpeg,svg',
         ], [
             'barber_id.required' => 'Kolom Barber harus diisi.',
             'nama.required' => 'Kolom Nama harus diisi.',
-            'foto' => 'nullable|mimes:png,jpg,jpeg', // Ubah menjadi nullable agar foto tidak wajib diunggah saat pembaruan
+            'harga.required' => 'Kolom Harga harus diisi.',
+            'foto' => 'nullable|mimes:png,jpg,jpeg,svg', // Ubah menjadi nullable agar foto tidak wajib diunggah saat pembaruan
         ]);
 
         $foto = $request->file('foto');
@@ -92,7 +94,7 @@ class LayananController extends Controller
             'barber_id' => 'required',
             'nama' => 'required',
             'harga' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg',
+            'foto' => 'required|mimes:png,jpg,jpeg,svg',
         ], [
             'barber_id.required' => 'Kolom Barber harus diisi.',
             'nama.required' => 'Kolom Nama harus diisi.',
@@ -104,7 +106,7 @@ class LayananController extends Controller
         $layanan->update([
             'barber_id'=>$request->barber_id,
             'nama' => $request->nama,
-            'harga' => $request->nama,
+            'harga' => $request->harga,
         ]);
     
         // Update foto jika ada

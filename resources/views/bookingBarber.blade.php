@@ -6,29 +6,20 @@
         <h4 class="text-center mb-4 text-white">Silahkan pilih cabang</h4>
         <!-- Memindahkan tulisan di atas card dan menengahkannya -->
         <div class="cabang">
-            {{-- card-1 --}}
-            <div class="card">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" alt="">
-                <h5 class="pt-3">Vol 1 Sunan Giri</h5>
-                <button>Pilih</button>
+            @foreach ($barbers as $barber)
+            <!-- card -->
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('storage/'.$barber->foto) }}" class="card-img-top" alt="{{ $barber->nama }}" style="width: 100%; max-height: 200px;">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5>{{ $barber->nama }}</h5>
+                        <p class="card-text text-white mb-3">{{ $barber->alamat }}</p>
+                    </div>
+                    <a href="{{ route('bookinglayanan', ['barber_id' => $barber->id]) }}" class="btn">Pilih</a>
+                </div>
             </div>
-            {{-- card-2 --}}
-            <div class="card">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" alt="">
-                <h5 class="pt-3">Vol 1 Sunan Giri</h5>
-                <button>Pilih</button>
-            </div>
-            {{-- card-3 --}}<div class="card">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" alt="">
-                <h5 class="pt-3">Vol 1 Sunan Giri</h5>
-                <button>Pilih</button>
-            </div>
-            {{-- card-4 --}}
-            <div class="card">
-                <img src="{{ asset('assets/componentCabang/cabangBarber.png') }}" alt="">
-                <h5 class="pt-3">Vol 1 Sunan Giri</h5>
-                <button>Pilih</button>
-            </div>
+            @endforeach
         </div>
+
     </div>
 @endsection

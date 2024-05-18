@@ -70,6 +70,7 @@
 
 .card img {
     width: 70%;
+    border: 4px solid white; /* Add a white border */
 }
 
 .card:hover {
@@ -80,12 +81,21 @@
     box-shadow: 0 0 10px 0 white;
 }
 
-.card button {
+.card h5,
+.card p {
+    text-align: center;
+}
+
+.card a {
     border: none;
     border-radius: 10px;
     background-color: #434b69;
     padding: 5px 15%;
     color: white;
+}
+
+.card a:hover {
+    color: white; /* Ensure the text color remains white on hover */
 }
 
 /* style css booking layanan */

@@ -4,6 +4,7 @@ use App\Http\Controllers\BarberController;
 use App\Http\Controllers\JadwalKaryawanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PilihBarberController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Route;
@@ -31,9 +32,7 @@ Route::get('/tesregister', function () {
     return view('register');
 })->name('tesregister');
 
-Route::get('/bookingbarber', function () {
-    return view('bookingBarber');
-})->name('bookingbarber');
+Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');
 
 Route::get('/bookinglayanan', function () {
     return view('bookingLayanan');

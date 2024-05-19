@@ -34,9 +34,13 @@ Route::get('/tesregister', function () {
     return view('register');
 })->name('tesregister');
 
+Route::get('/bookingpilih', function () {
+    return view('bookingPilih');
+})->name('bookingpilih');
+
 Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');
 
-Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan'); 
+Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan');
 
 Route::get('/bookingartist', function () {
     return view('bookingArtist');

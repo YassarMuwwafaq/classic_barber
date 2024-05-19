@@ -12,17 +12,6 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="exampleFormControlSelect2">Barber</label>
-                            <select class="form-control" id="exampleFormControlSelect2" name="barber_id">
-                                @foreach ($barbers as $barber)
-                                    <option value="{{ $barber->id }}" {{ $barber->id == $layanan->barber_id ? 'selected' : ''}}>{{ $barber->nama }}</option>
-                                @endforeach
-                            </select>
-                            @error('barber_id')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
                             <label for="exampleInputName1">Nama</label>
                             <input type="text" class="form-control" name="nama" id="exampleInputName1"
                                 placeholder="Nama" value="{{ $layanan->nama }}">
@@ -31,10 +20,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Harga</label>
-                            <input type="text" class="form-control" name="harga" id="exampleInputName1"
-                                placeholder="harga" value="{{ $layanan->harga }}">
-                            @error('harga')
+                            <label for="exampleInputName1">Deskripsi</label>
+                            <input type="text" class="form-control" name="deskripsi" id="exampleInputName1"
+                                placeholder="deskripsi" value="{{ $layanan->deskripsi }}">
+                            @error('deskripsi')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>

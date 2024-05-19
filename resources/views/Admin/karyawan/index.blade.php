@@ -31,6 +31,9 @@
                                     <th style="text-align: center"> Nomor </th>
                                     <th style="text-align: center" > Barber </th>
                                     <th style="text-align: center"> Nama </th>
+                                    <th style="text-align: center"> Alamat </th>
+                                    <th style="text-align: center"> Telepon </th>
+                                    <th style="text-align: center"> Email </th>
                                     <th style="text-align: center" > Foto </th>
                                     <th style="text-align: center"> Aksi </th>
                                 </tr>
@@ -40,7 +43,10 @@
                                     <tr>
                                         <td  style="text-align: center"> {{ $loop->iteration }} </td>
                                         <td style="text-align: center"> {{ $row->barber->nama }} </td>
-                                        <td style="text-align: center">{{ $row->nama }}</td>
+                                        <td style="text-align: center"> {{ $row->nama }} </td>
+                                        <td style="text-align: center"> {{ Str::limit($row->alamat, 30, '...') }} </td>
+                                        <td style="text-align: center">{{ $row->telepon }}</td>
+                                        <td style="text-align: center">{{ $row->email }}</td>
                                         <td style="text-align: center"> <img src="{{ asset('storage/' . $row->foto) }}" alt="Foto karyawan" width="200" height="200" style="border-radius: 0; width: 100px; height:100px">
                                         </td>
                                         <td style="text-align: center">

@@ -123,17 +123,16 @@
     justify-content: center;
     text-align: center;
     color: white;
-    gap: 60px;
-    width: 100%; /* Menambahkan lebar untuk memastikan setiap card berada dalam satu baris */
-    max-width: 100%; /* Sesuaikan dengan kebutuhanmu */
-    margin-top: 20px; /* Jarak antara judul dan cards */
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
 }
 
 .card-layanan {
     margin-top: 5%;
-    flex-basis: calc(
-        20% - 50px
-    ); /* 20% - 50px untuk memberi jarak antara card */
+    flex-basis: calc(33.33% - 40px); /* Tiga card per baris dengan jarak antar card */
+    box-sizing: border-box; /* Memastikan padding dan border termasuk dalam ukuran total card */
 }
 
 .card-layanan:hover {

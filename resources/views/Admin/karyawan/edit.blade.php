@@ -31,6 +31,30 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputName1">Alamat</label>
+                            <input type="text" class="form-control" name="alamat" id="exampleInputName1"
+                                placeholder="alamat" value="{{ $karyawan->alamat }}">
+                            @error('alamat')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName1">Telepon</label>
+                            <input type="text" class="form-control" name="telepon" id="exampleInputName1"
+                                placeholder="telepon" pattern="\d{10,15}" title="Telepon harus terdiri dari 10-15 digit angka" value="{{ $karyawan->telepon }}">
+                            @error('telepon')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName1">Email</label>
+                            <input type="email" class="form-control" name="email" id="exampleInputName1"
+                                placeholder="email" value="{{ $karyawan->email }}">
+                            @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputFile">Foto</label>
                             <input type="file" name="foto" class="form-control-file" id="exampleInputFile"
                                 aria-describedby="fileHelp">

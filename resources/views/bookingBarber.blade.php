@@ -18,7 +18,7 @@
                             <h5>{{ $barber->nama }}</h5>
                             <p class="card-text text-white mb-3">{{ $barber->alamat }}</p>
                         </div>
-                        <a href="{{ route('bookinglayanan', ['barber_id' => $barber->id]) }}" class="btn">Pilih</a>
+                        <a href="{{ route('pilihlayanan', ['barber_id' => $barber->id]) }}" class="btn">Pilih</a>
                     </div>
                 </div>
             </div>

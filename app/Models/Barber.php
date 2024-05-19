@@ -15,9 +15,9 @@ class Barber extends Model
         'foto',
     ];
 
-    //satu barber memiliki banyak layanan
-    public function layanan(){
-        return $this->hasMany(Layanan::class);
+    public function layanans()
+    {
+        return $this->belongsToMany(Layanan::class, 'layanan_barbers', 'barber_id', 'layanan_id');
     }
 
     //satu barber memiliki banyak lkaryawan

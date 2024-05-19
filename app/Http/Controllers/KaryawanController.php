@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barber;
 use App\Models\Karyawan;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,8 +26,9 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        //
+        // Ambil semua data dari tabel Barber
         $barbers = Barber::all();
+        
         return view('admin.karyawan.tambah', ['barbers' => $barbers]);
     }
 
@@ -39,11 +41,21 @@ class KaryawanController extends Controller
         $request->validate([
             'barber_id' => 'required',
             'nama' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg',
+            'alamat' => 'required',
+            'telepon' => ['required', 'regex:/^\d{10,15}$/'], // Telepon harus terdiri dari 10-15 digit
+            'email' => ['required', 'email', 'regex:/^.+@.+\..+$/'], // Email harus valid dan memiliki @
+            'foto' => 'required|mimes:png,jpg,jpeg,svg',
         ], [
             'barber_id.required' => 'Kolom Barber harus diisi.',
             'nama.required' => 'Kolom Nama harus diisi.',
-            'foto' => 'nullable|mimes:png,jpg,jpeg', // Ubah menjadi nullable agar foto tidak wajib diunggah saat pembaruan
+            'alamat.required' => 'Kolom Alamat harus diisi.',
+            'telepon.required' => 'Kolom Telepon harus diisi.',
+            'telepon.regex' => 'Kolom Telepon harus berupa angka dan memiliki 10-15 digit.',
+            'email.required' => 'Kolom Email harus diisi.',
+            'email.email' => 'Format Email tidak valid.',
+            'email.regex' => 'Format Email tidak valid.',
+            'foto.required' => 'Foto harus diunggah.',
+            'foto.mimes' => 'Foto harus dalam format: png, jpg, jpeg, atau svg.',
         ]);
 
         $foto = $request->file('foto');
@@ -55,6 +67,9 @@ class KaryawanController extends Controller
         Karyawan::create([
             'barber_id' => $request->barber_id,
             'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'email' => $request->email,
             'foto' => $path,
         ]);
 
@@ -89,17 +104,29 @@ class KaryawanController extends Controller
         $request->validate([
             'barber_id' => 'required',
             'nama' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg',
+            'alamat' => 'required',
+            'telepon' => ['required', 'regex:/^\d{10,15}$/'], // Telepon harus terdiri dari 10-15 digit
+            'email' => ['required', 'email', 'regex:/^.+@.+\..+$/'], // Email harus valid dan memiliki @
+            'foto' => 'required|mimes:png,jpg,jpeg,svg',
         ], [
             'barber_id.required' => 'Kolom Barber harus diisi.',
             'nama.required' => 'Kolom Nama harus diisi.',
-            'foto.required' => 'Kolom Foto harus diisi.',
+            'alamat.required' => 'Kolom Alamat harus diisi.',
+            'telepon.required' => 'Kolom Telepon harus diisi.',
+            'telepon.regex' => 'Kolom Telepon harus berupa angka dan memiliki 10-15 digit.',
+            'email.required' => 'Kolom Email harus diisi.',
+            'email.email' => 'Format Email tidak valid.',
+            'email.regex' => 'Format Email tidak valid.',
+            'foto.required' => 'Foto harus diunggah.',
+            'foto.mimes' => 'Foto harus dalam format: png, jpg, jpeg, atau svg.',
         ]);
-
         // Update barber_id dan nama
         $karyawan->update([
             'barber_id'=>$request->barber_id,
             'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'email' => $request->email,
         ]);
     
         // Update foto jika ada

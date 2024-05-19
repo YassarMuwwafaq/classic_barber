@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('barber_id')->constrained('Barbers');
             $table->string('nama'); // Menambahkan kolom nama dengan tipe data string
+            $table->string('alamat')->nullable();
+            $table->string('telepon')->nullable();
+            $table->string('email')->nullable();
             $table->string('foto'); // Kolom foto dengan tipe string
             $table->timestamps();
         });

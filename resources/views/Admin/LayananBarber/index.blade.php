@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-@section('title', 'Layanan')
+@section('title', 'Layanan Barber')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap4.css" />
@@ -15,13 +15,14 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Tabel Layanan</h4>
+                    <h4 class="card-title mb-4">Tabel Layanan Barber</h4>
                     @if (session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
                     <div class="row">
                         <div class="col-md-12 mb-2">
-                            <a href="{{ route('layanan.create') }}" class="btn btn-primary"><i class="mdi mdi-plus"></i>Tambah</a>
+                            <a href="{{ route('layananbarber.create') }}" class="btn btn-primary"><i
+                                    class="mdi mdi-plus"></i>Tambah</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -29,28 +30,33 @@
                             <thead>
                                 <tr>
                                     <th style="text-align: center"> Nomor </th>
-                                    <th style="text-align: center"> Nama </th>
-                                    <th style="text-align: center"> Deskripsi </th>
-                                    <th style="text-align: center"> Foto </th>
+                                    <th style="text-align: center"> Barber </th>
+                                    <th style="text-align: center"> Layanan </th>
                                     <th style="text-align: center"> Aksi </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($layanan as $row)
+                                @foreach ($barbers as $row)
                                     <tr>
-                                        <td  style="text-align: center"> {{ $loop->iteration }} </td>
-                                        <td style="text-align: center">{{ $row->nama }}</td>
-                                        <td style="text-align: center">{{ Str::limit($row->deskripsi, 30, '...') }}</td>
-                                        <td style="text-align: center"> <img src="{{ asset('storage/' . $row->foto) }}" alt="Foto Layanan" width="200" height="200" style="border-radius: 0; width: 100px; height:100px">
+                                        <td style="text-align: center"> {{ $loop->iteration }} </td>
+                                        <td style="text-align: center">{{ $row['nama_barber'] }}</td>
+                                        <td style="text-align: left">
+                                            <ul>
+                                                @foreach ($row['layanans'] as $layanan)
+                                                <li>{{ $layanan}}</li>
+                                                @endforeach
+                                            </ul>
                                         </td>
                                         <td style="text-align: center">
-                                            <a href="{{route('layanan.edit', $row->id)}}" class="btn btn-warning btn-icon-text">
+                                            <a href="{{ route('layananbarber.edit', $row['barber_id']) }}"
+                                                class="btn btn-warning btn-icon-text">
                                                 <i class="mdi mdi-pencil btn-icon-prepend"></i>Edit
                                             </a>
-                                            <form class="d-inline" action="{{ route('layanan.destroy') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus layanan ini?')">
+                                            <form class="d-inline" action="{{ route('layananbarber.destroy') }}" method="POST"
+                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus layanan ini?')">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="hidden" name="id" value="{{ $row->id }}">
+                                                <input type="hidden" name="barber_id" value="{{ $row['barber_id']}}">
                                                 <button type="submit" class="btn btn-danger btn-icon-text">
                                                     <i class="mdi mdi-delete btn-icon-prepend"></i> Hapus
                                                 </button>

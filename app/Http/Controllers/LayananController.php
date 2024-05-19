@@ -27,8 +27,7 @@ class LayananController extends Controller
     public function create()
     {
         //
-        $barbers = Barber::all();
-        return view('admin.layanan.tambah', ['barbers' => $barbers]);
+        return view('admin.layanan.tambah');
     }
 
     /**
@@ -38,13 +37,13 @@ class LayananController extends Controller
     {
         //
         $request->validate([
-            'barber_id' => 'required',
             'nama' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg',
+            'deskripsi' => 'required',
+            'foto' => 'required|mimes:png,jpg,jpeg,svg',
         ], [
-            'barber_id.required' => 'Kolom Barber harus diisi.',
             'nama.required' => 'Kolom Nama harus diisi.',
-            'foto' => 'nullable|mimes:png,jpg,jpeg', // Ubah menjadi nullable agar foto tidak wajib diunggah saat pembaruan
+            'deskripsi.required' => 'Kolom deskripsi harus diisi.',
+            'foto' => 'nullable|mimes:png,jpg,jpeg,svg', // Ubah menjadi nullable agar foto tidak wajib diunggah saat pembaruan
         ]);
 
         $foto = $request->file('foto');
@@ -54,9 +53,8 @@ class LayananController extends Controller
         Storage::disk('public')->put($path, file_get_contents($foto));
 
         Layanan::create([
-            'barber_id' => $request->barber_id,
             'nama' => $request->nama,
-            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
             'foto' => $path,
         ]);
 
@@ -78,8 +76,7 @@ class LayananController extends Controller
     public function edit(Layanan $layanan)
     {
         //
-        $barbers = Barber::all();
-        return view('admin.layanan.edit', compact('layanan', 'barbers'));
+        return view('admin.layanan.edit', compact('layanan'));
     }
 
     /**
@@ -89,22 +86,19 @@ class LayananController extends Controller
     {
         //
         $request->validate([
-            'barber_id' => 'required',
             'nama' => 'required',
-            'harga' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg',
+            'deskripsi' => 'required',
+            'foto' => 'required|mimes:png,jpg,jpeg,svg',
         ], [
-            'barber_id.required' => 'Kolom Barber harus diisi.',
             'nama.required' => 'Kolom Nama harus diisi.',
-            'harga.required' => 'Kolom Harga harus diisi.',
+            'deskripsi.required' => 'Kolom deskripsi harus diisi.',
             'foto.required' => 'Kolom Foto harus diisi.',
         ]);
 
         // Update barber_id dan nama
         $layanan->update([
-            'barber_id'=>$request->barber_id,
             'nama' => $request->nama,
-            'harga' => $request->nama,
+            'deskripsi' => $request->deskripsi,
         ]);
     
         // Update foto jika ada

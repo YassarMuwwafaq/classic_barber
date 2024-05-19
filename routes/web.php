@@ -3,7 +3,10 @@
 use App\Http\Controllers\BarberController;
 use App\Http\Controllers\JadwalKaryawanController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\layananBarberController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PilihBarberController;
+use App\Http\Controllers\PilihLayananController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Route;
@@ -34,9 +37,21 @@ Route::get('/tesregister', function () {
     return view('register');
 })->name('tesregister');
 
-Route::get('/bookingbarber', function () {
-    return view('bookingBarber');
-})->name('bookingBarber');
+Route::get('/bookingpilih', function () {
+    return view('bookingPilih');
+})->name('bookingpilih');
+
+Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');
+
+Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan');
+
+Route::get('/bookingartist', function () {
+    return view('bookingArtist');
+})->name('bookingartist');
+
+Route::get('/bookingartist-detail', function () {
+    return view('bookingArtistDetail');
+})->name('bookingartist-detail');
 
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboard');
@@ -59,6 +74,13 @@ Route::get('/layanan/tambah', [LayananController::class, 'create'])->name('layan
 Route::post('/layanan/tambah', [LayananController::class, 'store'])->name('layanan.store');
 Route::get('/layanan/{layanan}/edit', [LayananController::class, 'edit'])->name('layanan.edit');
 Route::put('/layanan/{layanan}', [LayananController::class, 'update'])->name('layanan.update');
+
+Route::get('/servicebarber', [LayananBarberController::class, 'index'])->name('layananbarber.index');
+Route::delete('/servicebarber', [LayananBarberController::class, 'destroy'])->name('layananbarber.destroy');
+Route::get('/servicebarber/tambah', [LayananBarberController::class, 'create'])->name('layananbarber.create');
+Route::post('/servicebarber/tambah', [LayananBarberController::class, 'store'])->name('layananbarber.store');
+Route::get('/servicebarber/{layanan}/edit', [LayananBarberController::class, 'edit'])->name('layananbarber.edit');
+Route::put('/servicebarber/{layanan}', [LayananBarberController::class, 'update'])->name('layananbarber.update');
 
 Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
 Route::delete('/karyawan', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');

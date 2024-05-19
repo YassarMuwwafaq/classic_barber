@@ -116,6 +116,14 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('layananbarber.index') }}">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-face"></i>
+                        </span>
+                        <span class="menu-title">Layanan Barber</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('karyawan.index') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-account"></i>

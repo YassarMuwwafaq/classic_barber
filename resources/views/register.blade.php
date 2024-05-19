@@ -18,8 +18,8 @@
     </div>
     <div class="container">
         <div class="mb-3 text-center">
-            <a href="{{ route('teslogin') }}" class="nav-login-register">Login</a>
-            <a href="{{ route('teslogin') }}" class="nav-login-register active">Register</a>
+            <a href="{{ route('teslogin') }}" class="nav-login-register ">Login</a>
+            <a href="{{ route('tesregister') }}" class="nav-login-register active">Register</a>
         </div>
         <div class="row justify-content-center">
             <form method="POST" action="{{ route('register') }}" class="col-md-6">

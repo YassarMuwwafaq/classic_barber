@@ -7,6 +7,10 @@ header {
     z-index: 100;
 }
 
+.info {
+    z-index: 100;
+}
+
 /* navbar */
 .navbar {
     text-align: center;
@@ -20,6 +24,7 @@ header {
 
 a.nav-link {
     color: #fff;
+    z-index: 110;
 }
 
 ul,
@@ -69,14 +74,15 @@ li {
 }
 
 /* main */
+/* Jumbotron */
 
-.jumbotron-full {
+/* .jumbotron-full {
     background-image: url("../assets/jumbotron.png");
     background-size: cover;
-    text-align: center; /* Center align text */
+    text-align: center; 
     position: relative;
-    z-index: 50;
-}
+    z-index: 1;
+} */
 
 /* .color-overlay {
     position: absolute;
@@ -111,18 +117,147 @@ h1 {
     background-color: black;
 }
 
+/* pelayanan */
 .pelayanan {
     position: relative;
-    z-index: 61;
+    z-index: 63;
+    height: 180vh;
+    margin-top: -80px;
+}
+
+.titlepelayanan {
+    color: white;
+    margin-top: 7%;
 }
 
 .lokasi {
     position: relative;
+    z-index: 59;
 }
+
+.btn-bookingnow {
+    display: flex;
+    width: 292px;
+    height: 56px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    color: #fff;
+    text-align: center;
+    font-family: "Noto Serif Gujarati";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.25px;
+
+    border-radius: 10px;
+    background: #a3353b;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-bookingnow:hover {
+    background: #8a2b33;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-bookingnow:active {
+    background: #6f222a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+}
+
+.produk {
+    margin-top: 30%;
+}
+
+.btn-produk {
+    display: flex;
+    width: 222px;
+    height: 56px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    color: #fff;
+    text-align: center;
+    font-family: "Noto Serif Gujarati";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.25px;
+
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background: #a3353b;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-produk:hover {
+    background: #8a2b33;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-produk:active {
+    background: #6f222a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+}
+/* customer */
 
 .customer {
     position: relative;
-    z-index: 63;
+    z-index: 61;
+}
+
+.btn-perm {
+    display: flex;
+    width: 292px;
+    height: 56px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    color: #fff;
+    text-align: center;
+    font-family: Mukta;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.25px;
+
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background: #434b69;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-perm:hover {
+    background: #576482;
+    border-color: #576482;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-perm:active {
+    background: #333b56;
+    border-color: #333b56;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
 }
 
 /* Optional: Stylize text inside section */
@@ -161,7 +296,7 @@ h1 {
 
     .carousel {
         position: relative;
-        margin-top: -120px;
+        margin-top: -20px;
     }
 
     /* kenapa */
@@ -169,16 +304,11 @@ h1 {
         /* Atur gambar background dan efek cover */
 
         margin-top: 120px;
-        height: 170vh;
+        height: 180vh;
     }
 
     .kenapa .row {
         margin-top: 120px;
-    }
-
-    .pelayanan {
-        height: 150vh;
-        margin-top: -80px;
     }
 
     .lokasi {
@@ -190,7 +320,7 @@ h1 {
         z-index: 63;
         position: relative;
         height: 320px;
-        margin-top: -4%;
+        margin-top: -5%;
     }
 }
 
@@ -201,17 +331,10 @@ h1 {
         background-color: #3adee1;
     }
 
-    .jumbotron-full {
-        width: 100%;
-        height: 35vh;
-    }
-
-    .color-overlay {
-        height: 30vh;
-    }
-    .logoClassic {
-        height: 130px;
-        width: 130px;
+    /* jumbotron */
+    .jumbotron {
+        /* margin-top: 100px; */
+        height: 40vh;
     }
 
     /* caraousel */
@@ -221,6 +344,45 @@ h1 {
 
     /* kenapa */
     .kenapa {
-        margin-top: 35px;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 16px;
+    }
+    p {
+        font-size: 12px;
+    }
+
+    .rowkenapa {
+        margin-top: 60px;
+    }
+
+    .titleKenapa {
+        font-size: 14px;
+    }
+
+    .desc {
+        text-align: center;
+    }
+
+    .img-mobile {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .pelayanan {
+        position: relative;
+        z-index: 61;
+        height: auto;
+        margin-top: -80px;
+    }
+
+    .titlepelayanan {
+        margin-top: 35%;
     }
 }
+
+/* pelayanan */

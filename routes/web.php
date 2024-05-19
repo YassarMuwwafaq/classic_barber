@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/tes', function () {
+    return view('tesindex');
+});
 
 Route::get('/teslogin', function () {
     return view('login');

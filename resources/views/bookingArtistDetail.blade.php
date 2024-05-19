@@ -33,7 +33,7 @@
         </div>
         {{-- panah undo --}}
         <div class="btn-panah">
-            <a href="{{ route('bookingartist') }}"><img src="{{ asset('assets/panah-undo.svg') }}" alt=""></a>
+            <a href="#"><img src="{{ asset('assets/panah-undo.svg') }}" alt=""></a>
         </div>
     </div>
 @endsection

@@ -35,6 +35,16 @@
     border-radius: 10px;
 }
 
+/* footer css */
+.footer {
+    text-align: center;
+    position: absolute;
+    justify-content: center;
+    bottom: 0;
+    left: 45%;
+    color: white;
+}
+
 /* start Pilih cabang */
 .section {
     display: flex;
@@ -131,7 +141,9 @@
 
 .card-layanan {
     margin-top: 5%;
-    flex-basis: calc(33.33% - 40px); /* Tiga card per baris dengan jarak antar card */
+    flex-basis: calc(
+        33.33% - 40px
+    ); /* Tiga card per baris dengan jarak antar card */
     box-sizing: border-box; /* Memastikan padding dan border termasuk dalam ukuran total card */
 }
 

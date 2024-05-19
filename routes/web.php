@@ -27,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/tes', function () {
+    return view('tesindex');
+});
 
 Route::get('/teslogin', function () {
     return view('login');
@@ -36,9 +39,13 @@ Route::get('/tesregister', function () {
     return view('register');
 })->name('tesregister');
 
+Route::get('/bookingpilih', function () {
+    return view('bookingPilih');
+})->name('bookingpilih');
+
 Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');
 
-Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan'); 
+Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan');
 
 Route::get('/bookingbarber/{barber_id}/{layanan_id}', [PilihHairArtistController::class, 'index'])->name('bookingartist');
 

@@ -16,6 +16,12 @@ class Karyawan extends Model
         return $this->belongsTo(Barber::class);
     }
 
+    public function Layanans()
+    {
+        return $this->belongsToMany(Layanan::class, 'layanan_karyawans','karyawan_id', 'layanan_id')
+        ->withPivot('harga');
+    }
+
     public function jadwal_karyawan(){
         return $this->belongsTo(JadwalKaryawan::class);
     }

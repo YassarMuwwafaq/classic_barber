@@ -15,4 +15,10 @@ class Layanan extends Model
     {
         return $this->belongsToMany(Barber::class, 'layanan_barbers', 'layanan_id', 'barber_id');
     }
+
+    public function karyawans()
+    {
+        return $this->belongsToMany(Karyawan::class, 'layanan_karyawans', 'layanan_id', 'karyawan_id')
+        ->withPivot('harga');
+    }
 }

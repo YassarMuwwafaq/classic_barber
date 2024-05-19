@@ -132,6 +132,14 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('layanankaryawan.index') }}">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account"></i>
+                        </span>
+                        <span class="menu-title">Layanan Karyawan</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('jadwalkaryawan.index') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-calendar-clock"></i>

@@ -5,7 +5,9 @@ use App\Http\Controllers\JadwalKaryawanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\layananBarberController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\LayananKaryawanController;
 use App\Http\Controllers\PilihBarberController;
+use App\Http\Controllers\PilihHairArtistController;
 use App\Http\Controllers\PilihLayananController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Karyawan;
@@ -38,9 +40,7 @@ Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('boo
 
 Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan'); 
 
-Route::get('/bookingartist', function () {
-    return view('bookingArtist');
-})->name('bookingartist');
+Route::get('/bookingbarber/{barber_id}/{layanan_id}', [PilihHairArtistController::class, 'index'])->name('bookingartist');
 
 Route::get('/bookingartist-detail', function () {
     return view('bookingArtistDetail');
@@ -81,6 +81,13 @@ Route::get('/karyawan/tambah', [KaryawanController::class, 'create'])->name('kar
 Route::post('/karyawan/tambah', [karyawanController::class, 'store'])->name('karyawan.store');
 Route::get('/karyawan/{karyawan}/edit', [karyawanController::class, 'edit'])->name('karyawan.edit');
 Route::put('/karyawan/{karyawan}', [karyawanController::class, 'update'])->name('karyawan.update');
+
+Route::get('/layanankaryawan', [LayananKaryawanController::class, 'index'])->name('layanankaryawan.index');
+Route::delete('/layanankaryawan', [layanankaryawanController::class, 'destroy'])->name('layanankaryawan.destroy');
+Route::get('/layanankaryawan/tambah', [layanankaryawanController::class, 'create'])->name('layanankaryawan.create');
+Route::post('/layanankaryawan/tambah', [layanankaryawanController::class, 'store'])->name('layanankaryawan.store');
+Route::get('/layanankaryawan/{layanankaryawan}/edit', [layanankaryawanController::class, 'edit'])->name('layanankaryawan.edit');
+Route::put('/layanankaryawan/{layanankaryawan}', [layanankaryawanController::class, 'update'])->name('layanankaryawan.update');
 
 Route::get('/jadwal', [JadwalKaryawanController::class, 'index'])->name('jadwalkaryawan.index');
 Route::delete('/jadwal', [JadwalKaryawanController::class, 'destroy'])->name('jadwalkaryawan.destroy');

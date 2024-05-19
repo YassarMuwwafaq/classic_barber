@@ -8,7 +8,9 @@
         <div class="cabang-layanan">
             @foreach ($layanans as $layanan)
                 <div class="card-layanan">
-                    <img src="{{ asset('storage/' . $layanan->foto) }}" alt="">
+                    <a href="{{ route('bookingartist', ['barber_id' => $barber->id, 'layanan_id' => $layanan->id]) }}">
+                        <img src="{{ asset('storage/' . $layanan->foto) }}" alt="">
+                    </a>
                     <h5 class="pt-3">{{ $layanan->nama }}</h5>
                     <p>{{ $layanan->deskripsi }}</p>
                 </div>

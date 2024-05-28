@@ -17,7 +17,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        // return view('auth.login');
+        return view('login');
     }
 
     /**
@@ -25,11 +26,28 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        // $request->authenticate();
 
-        $request->session()->regenerate();
+        $credentials = $request->only('email', 'password');
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->to('/dashboardadmin');
+            }
+
+            if (Auth::user()->hasRole('customer')) {
+                return redirect()->to('/');
+            }
+
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+
+        // If authentication fails, redirect back with custom error message
+        return redirect()->back()->withInput($request->only('email'))->withErrors([
+            'email' => 'Email atau kata sandi yang Anda masukkan salah.',
+        ]);
     }
 
     /**

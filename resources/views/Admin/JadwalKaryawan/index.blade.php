@@ -29,24 +29,22 @@
                         <table id="datatable" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center"> Nomor </th>
-                                    <th style="text-align: center"> Karyawan </th>
                                     <th style="text-align: center"> Tanggal </th>
+                                    <th style="text-align: center"> Karyawan </th>
+                                    <th style="text-align: center"> Barber </th>
                                     <th style="text-align: center"> Waktu Mulai </th>
-                                    <th style="text-align: center"> Waktu Berakhir </th>
-                                    <th style="text-align: center"> Tersedia </th>
+                                    <th style="text-align: center"> Waktu Selesai </th>
                                     <th style="text-align: center"> Aksi </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($jadwalKaryawan as $row)
                                     <tr>
-                                        <td style="text-align: center"> {{ $loop->iteration }} </td>
-                                        <td style="text-align: center"> {{ $row->karyawan->nama }} </td>
                                         <td style="text-align: center">{{ $row->tanggal }}</td>
+                                        <td style="text-align: center"> {{ $row->karyawan->nama }} </td>
+                                        <td style="text-align: center"> {{ $row->karyawan->barber->nama }} </td>
                                         <td style="text-align: center"> {{ $row->waktu_mulai }} </td>
-                                        <td style="text-align: center"> {{ $row->waktu_berakhir }} </td>
-                                        <td style="text-align: center"> {{ $row->tersedia }} </td>
+                                        <td style="text-align: center"> {{ $row->waktu_selesai }} </td>
                                         <td style="text-align: center">
                                             <a href="{{ route('jadwalkaryawan.edit', $row->id) }}"
                                                 class="btn btn-warning btn-icon-text">

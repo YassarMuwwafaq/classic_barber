@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('jadwal_karyawans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('karyawan_id')->constrained('karyawans');
+            $table->foreignId('karyawan_id')->constrained('Karyawans');
             $table->date('tanggal');
             $table->time('waktu_mulai');
-            $table->time('waktu_berakhir');
-            $table->boolean('tersedia')->default(true);
+            $table->time('waktu_selesai');
             $table->timestamps();
         });
     }

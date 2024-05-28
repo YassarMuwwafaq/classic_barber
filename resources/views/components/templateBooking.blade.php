@@ -20,8 +20,11 @@
     <div class="navbar">
         <div class="container">
             <a href=""><img src="{{ asset('assets/logo.svg') }}" alt=""></a>
-            <div class="status">STATUS : NAMA CUSTOMER 12/12/2012</div>
-            <div class="btn-logout">Log Out</div>
+            <div class="status">{{ Auth::user()->name }} | {{ date('d F Y') }} | {{ date('H:i') }}</div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <button class="btn-logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</button>
         </div>
     </div>
 

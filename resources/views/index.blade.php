@@ -81,9 +81,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">CONTACT US</a>
                         </li>
+                        @auth
+                        <li class="nav-item dropdown info-link-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </ul>
+                        </li>
+                    @endauth
                     </ul>
                     <div class="btnBook d-flex justify-content-center">
-                        <button class="btn-book" type="submit">BOOK NOW</button>
+                        @guest
+                        <a class="btn-login me-2" href="{{ route('login') }}">LOGIN</a>
+                        @endguest
+                        <a class="btn-book me-2" href="{{ route('bookingbarber') }}">BOOKING</a>
                     </div>
                 </div>
             </div>

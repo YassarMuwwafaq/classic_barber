@@ -19,36 +19,15 @@
                     <div class="table-responsive">
                         <table id="datatable" class="table table-bordered">
                             <thead>
-                                <tr>
-                                    <th> # </th>
-                                    <th> First name </th>
-                                    <th> Progress </th>
-                                    <th> Amount </th>
-                                    <th> Deadline </th>
-                                    <th> Aksi </th>
+                                <tr >
+                                    <th style="text-align: center"> Nomor </th>
+                                    <th style="text-align: center"> Nama </th>
+                                    <th style="text-align: center"> Email </th>
+                                    <th style="text-align: center"> Aksi </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> Herman Beck </td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td> $ 77.99 </td>
-                                    <td> May 15, 2015 </td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning btn-icon-text">
-                                            <i class="mdi mdi-pencil btn-icon-prepend"></i> Edit 
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-icon-text">
-                                            <i class="mdi mdi-delete btn-icon-prepend"></i> Hapus 
-                                        </button>
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>

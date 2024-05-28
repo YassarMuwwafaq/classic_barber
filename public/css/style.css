@@ -32,7 +32,7 @@ li {
     gap: 5px;
 }
 
-.btn-book {
+.btn-book{
     display: flex;
     width: 180px;
     height: 56px;
@@ -41,10 +41,8 @@ li {
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-
     border-radius: 11px;
     background: #a3353b;
-
     color: #fff;
     text-align: center;
     font-family: "Noto Serif Gujarati";
@@ -53,24 +51,54 @@ li {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.25px;
-
-    /* Menambahkan efek transisi */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Tombol Login */
+.btn-login {
+    display: flex;
+    width: 180px;
+    height: 56px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: #8a2b33; /* Warna sedikit lebih terang */
+    color: #fff;
+    text-align: center;
+    font-family: "Noto Serif Gujarati";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.25px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 /* Efek hover saat kursor di atas tombol */
-.btn-book:hover {
-    background-color: #87282e; /* Ubah warna background saat hover */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan efek bayangan */
+.btn-book:hover, .btn-login:hover {
+    background-color: #87282e;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-color: #fff;
     border: 2px;
 }
 
 /* Efek klik saat tombol ditekan */
-.btn-book:active {
-    transform: translateY(
-        2px
-    ); /* Pindahkan tombol sedikit ke bawah saat ditekan */
+.btn-book:active, .btn-login:active {
+    transform: translateY(2px);
+}
+
+a {
+    text-decoration: none; /* Menghilangkan dekorasi teks */
+}
+
+a:hover {
+    /* Menghilangkan efek hover */
+    text-decoration: none;
+    color: inherit; /* Menyesuaikan warna teks dengan waran tombol */
 }
 
 /* main */

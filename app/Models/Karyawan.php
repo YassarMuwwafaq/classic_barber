@@ -22,8 +22,8 @@ class Karyawan extends Model
         ->withPivot('harga');
     }
 
-    public function jadwal_karyawan(){
-        return $this->belongsTo(JadwalKaryawan::class);
+    public function jadwal_karyawans(){
+        return $this->hasMany(JadwalKaryawan::class);
     }
 
 }

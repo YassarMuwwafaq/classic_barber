@@ -1,54 +1,41 @@
 @extends('admin.layout.app')
-@section('title', 'Tambah')
+@section('title', 'Tambah Jadwal Karyawan')
 @section('content')
     <div class="content-wrapper">
-        <div class="col-12 grid-margin stretch-card">
+        <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Tambah Data Jadwal</h4>
-                    <p class="card-description"></p>
-                    <form action="{{ route('jadwalkaryawan.store') }}" method="POST" enctype="multipart/form-data"
-                        class="forms-sample">
+                    <h4 class="card-title mb-4">Tambah Jadwal Karyawan</h4>
+                    <form action="{{ route('jadwalkaryawan.store') }}" method="POST" id="jadwalForm">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleFormControlSelect2">Jadwal</label>
-                            <select class="form-control" id="exampleFormControlSelect2" name="karyawan_id">
-                                @foreach ($karyawans as $karyawan)
-                                    <option value="{{ $karyawan->id }}">{{ $karyawan->nama }}</option>
-                                @endforeach
-                            </select>
-                            @error('karyawan_id')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                         </div>
-                        <div class="form-group">
-                            <label for="date">Tanggal</label>
-                            <input type="date" class="form-control" name="tanggal" id="tanggal">
-                            @error('tanggal')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="waktu">Sesi Waktu</label>
-                            <select class="form-control" id="waktu" name="waktu">
-                                @foreach ($waktus as $waktu)
-                                    <option value="{{ $waktu }}">{{ $waktu }}</option>
-                                @endforeach
-                            </select>
-                            @error('waktu')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="tersedia" id="tersedia" value="1"> Tersedia
-                                </label>
+                        <div id="karyawanInputs">
+                            <div class="form-group d-flex">
+                                <div class="mr-2 flex-grow-1">
+                                    <label for="karyawan_id">Karyawan</label>
+                                    <select class="form-control" name="karyawan_id[]" required>
+                                        @foreach ($karyawans as $karyawan)
+                                            <option value="{{ $karyawan->id }}">{{ $karyawan->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mr-2" style="width: 25%;">
+                                    <label for="waktu_mulai">Waktu Mulai</label>
+                                    <input type="time" class="form-control" name="waktu_mulai[]" required>
+                                </div>
+                                <div style="width: 25%;">
+                                    <label for="waktu_selesai">Waktu Selesai</label>
+                                    <input type="time" class="form-control" name="waktu_selesai[]" required>
+                                </div>
                             </div>
-                            @error('tersedia')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
                         </div>
+                        <div>
+                            <button type="button" class="btn btn-success mb-4" id="addKaryawan">Tambah Karyawan</button>
+                        </div>
+                        <!-- Add more fields here if needed -->
                         <button type="submit" class="btn btn-primary mr-2">Kirim</button>
                         <a href="{{ route('jadwalkaryawan.index') }}" class="btn btn-dark">Batal</a>
                     </form>
@@ -56,4 +43,33 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.getElementById('addKaryawan').addEventListener('click', function() {
+            var karyawanInputs = document.getElementById('karyawanInputs');
+            var newKaryawanInput = document.createElement('div');
+            newKaryawanInput.classList.add('form-group', 'd-flex');
+            newKaryawanInput.innerHTML = `
+                <div class="mr-2 flex-grow-1">
+                    <label for="karyawan_id">Karyawan</label>
+                    <select class="form-control" name="karyawan_id[]" required>
+                        @foreach ($karyawans as $karyawan)
+                            <option value="{{ $karyawan->id }}">{{ $karyawan->nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mr-2" style="width: 25%;">
+                    <label for="waktu_mulai">Waktu Mulai</label>
+                    <input type="time" class="form-control" name="waktu_mulai[]" required>
+                </div>
+                <div style="width: 25%;">
+                    <label for="waktu_selesai">Waktu Selesai</label>
+                    <input type="time" class="form-control" name="waktu_selesai[]" required>
+                </div>
+            `;
+            karyawanInputs.appendChild(newKaryawanInput);
+        });
+    </script>
 @endsection

@@ -41,7 +41,7 @@
                                         <td style="text-align: center">{{ $karyawan->nama }}</td>
                                         <td style="text-align: left">
                                             @foreach ($karyawan->Layanans as $layanan)
-                                                {{ $layanan->nama }} - {{ $layanan->pivot->harga }}<br>
+                                            <li>{{ $layanan->nama }} - {{ $layanan->pivot->harga }}</li>
                                             @endforeach
                                         </td>
                                         <td style="text-align: center">

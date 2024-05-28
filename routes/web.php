@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarberController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JadwalKaryawanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\layananBarberController;
@@ -28,78 +29,72 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-Route::get('/teslogin', function () {
-    return view('login');
-})->name('teslogin');
-
-Route::get('/tesregister', function () {
-    return view('register');
-})->name('tesregister');
-
 Route::get('/bookingpilih', function () {
     return view('bookingPilih');
 })->name('bookingpilih');
 
-Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');
+Route::middleware(['auth', 'verified', 'role:customer|admin'])->group(function () {
+    Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');
 
-Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan');
+    Route::get('/bookingbarber/{barber_id}', [PilihLayananController::class, 'index'])->name('pilihlayanan');
 
-Route::get('/bookingbarber/{barber_id}/{layanan_id}', [PilihHairArtistController::class, 'index'])->name('bookingartist');
+    Route::get('/bookingbarber/{barber_id}/{layanan_id}', [PilihHairArtistController::class, 'index'])->name('bookingartist');
 
-Route::get('/bookingartist-detail', function () {
-    return view('bookingArtistDetail');
-})->name('bookingartist-detail');
+    Route::get('/bookingartist-detail', function () {
+        return view('bookingArtistDetail');
+    })->name('bookingartist-detail');
+});
 
-Route::get('/dashboardadmin', function () {
-    return view('admin.dashboard');
-})->name('dashboard-adminpage');
+Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+    Route::get('/dashboardadmin', [DashboardController::class, 'index'])->name('dashboardadmin');
 
-Route::get('/user', function () {
-    return view('admin.user.index');
-})->name('user-adminpage');
+    Route::get('/user', function () {
+        return view('admin.user.index');
+    })->name('user-adminpage');
 
-Route::get('/barber', [BarberController::class, 'index'])->name('barber.index');
-Route::delete('/barber', [BarberController::class, 'destroy'])->name('barber.destroy');
-Route::get('/barber/tambah', [BarberController::class, 'create'])->name('barber.create');
-Route::post('/barber/tambah', [BarberController::class, 'store'])->name('barber.store');
-Route::get('/barber/{barber}/edit', [BarberController::class, 'edit'])->name('barber.edit');
-Route::put('/barber/{barber}', [BarberController::class, 'update'])->name('barber.update');
+    Route::get('/barber', [BarberController::class, 'index'])->name('barber.index');
+    Route::delete('/barber', [BarberController::class, 'destroy'])->name('barber.destroy');
+    Route::get('/barber/tambah', [BarberController::class, 'create'])->name('barber.create');
+    Route::post('/barber/tambah', [BarberController::class, 'store'])->name('barber.store');
+    Route::get('/barber/{barber}/edit', [BarberController::class, 'edit'])->name('barber.edit');
+    Route::put('/barber/{barber}', [BarberController::class, 'update'])->name('barber.update');
 
-Route::get('/layanan', [LayananController::class, 'index'])->name('layanan.index');
-Route::delete('/layanan', [LayananController::class, 'destroy'])->name('layanan.destroy');
-Route::get('/layanan/tambah', [LayananController::class, 'create'])->name('layanan.create');
-Route::post('/layanan/tambah', [LayananController::class, 'store'])->name('layanan.store');
-Route::get('/layanan/{layanan}/edit', [LayananController::class, 'edit'])->name('layanan.edit');
-Route::put('/layanan/{layanan}', [LayananController::class, 'update'])->name('layanan.update');
+    Route::get('/layanan', [LayananController::class, 'index'])->name('layanan.index');
+    Route::delete('/layanan', [LayananController::class, 'destroy'])->name('layanan.destroy');
+    Route::get('/layanan/tambah', [LayananController::class, 'create'])->name('layanan.create');
+    Route::post('/layanan/tambah', [LayananController::class, 'store'])->name('layanan.store');
+    Route::get('/layanan/{layanan}/edit', [LayananController::class, 'edit'])->name('layanan.edit');
+    Route::put('/layanan/{layanan}', [LayananController::class, 'update'])->name('layanan.update');
 
-Route::get('/servicebarber', [LayananBarberController::class, 'index'])->name('layananbarber.index');
-Route::delete('/servicebarber', [LayananBarberController::class, 'destroy'])->name('layananbarber.destroy');
-Route::get('/servicebarber/tambah', [LayananBarberController::class, 'create'])->name('layananbarber.create');
-Route::post('/servicebarber/tambah', [LayananBarberController::class, 'store'])->name('layananbarber.store');
-Route::get('/servicebarber/{layanan}/edit', [LayananBarberController::class, 'edit'])->name('layananbarber.edit');
-Route::put('/servicebarber/{layanan}', [LayananBarberController::class, 'update'])->name('layananbarber.update');
+    Route::get('/servicehair', [LayananBarberController::class, 'index'])->name('layananbarber.index');
+    Route::delete('/servicehair', [LayananBarberController::class, 'destroy'])->name('layananbarber.destroy');
+    Route::get('/servicehair/tambah', [LayananBarberController::class, 'create'])->name('layananbarber.create');
+    Route::post('/servicehair/tambah', [LayananBarberController::class, 'store'])->name('layananbarber.store');
+    Route::get('/servicehair/{layanan}/edit', [LayananBarberController::class, 'edit'])->name('layananbarber.edit');
+    Route::put('/servicehair/{layanan}', [LayananBarberController::class, 'update'])->name('layananbarber.update');
 
-Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
-Route::delete('/karyawan', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
-Route::get('/karyawan/tambah', [KaryawanController::class, 'create'])->name('karyawan.create');
-Route::post('/karyawan/tambah', [karyawanController::class, 'store'])->name('karyawan.store');
-Route::get('/karyawan/{karyawan}/edit', [karyawanController::class, 'edit'])->name('karyawan.edit');
-Route::put('/karyawan/{karyawan}', [karyawanController::class, 'update'])->name('karyawan.update');
+    Route::get('/hairartist', [KaryawanController::class, 'index'])->name('karyawan.index');
+    Route::delete('/hairartist', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
+    Route::get('/hairartist/tambah', [KaryawanController::class, 'create'])->name('karyawan.create');
+    Route::post('/hairartist/tambah', [KaryawanController::class, 'store'])->name('karyawan.store');
+    Route::get('/hairartist/{karyawan}/edit', [KaryawanController::class, 'edit'])->name('karyawan.edit');
+    Route::put('/hairartist/{karyawan}', [KaryawanController::class, 'update'])->name('karyawan.update');
 
-Route::get('/layanankaryawan', [LayananKaryawanController::class, 'index'])->name('layanankaryawan.index');
-Route::delete('/layanankaryawan', [layanankaryawanController::class, 'destroy'])->name('layanankaryawan.destroy');
-Route::get('/layanankaryawan/tambah', [layanankaryawanController::class, 'create'])->name('layanankaryawan.create');
-Route::post('/layanankaryawan/tambah', [layanankaryawanController::class, 'store'])->name('layanankaryawan.store');
-Route::get('/layanankaryawan/{layanankaryawan}/edit', [layanankaryawanController::class, 'edit'])->name('layanankaryawan.edit');
-Route::put('/layanankaryawan/{layanankaryawan}', [layanankaryawanController::class, 'update'])->name('layanankaryawan.update');
+    Route::get('/employeeservices', [LayananKaryawanController::class, 'index'])->name('layanankaryawan.index');
+    Route::delete('/employeeservices', [LayananKaryawanController::class, 'destroy'])->name('layanankaryawan.destroy');
+    Route::get('/employeeservices/tambah', [LayananKaryawanController::class, 'create'])->name('layanankaryawan.create');
+    Route::post('/employeeservices/tambah', [LayananKaryawanController::class, 'store'])->name('layanankaryawan.store');
+    Route::get('/employeeservices/{layanankaryawan}/edit', [LayananKaryawanController::class, 'edit'])->name('layanankaryawan.edit');
+    Route::put('/employeeservices/{layanankaryawan}', [LayananKaryawanController::class, 'update'])->name('layanankaryawan.update');
 
-Route::get('/jadwal', [JadwalKaryawanController::class, 'index'])->name('jadwalkaryawan.index');
-Route::delete('/jadwal', [JadwalKaryawanController::class, 'destroy'])->name('jadwalkaryawan.destroy');
-Route::get('/jadwal/tambah', [JadwalKaryawanController::class, 'create'])->name('jadwalkaryawan.create');
-Route::post('/jadwal/tambah', [JadwalKaryawanController::class, 'store'])->name('jadwalkaryawan.store');
-Route::get('/jadwal/{jadwalKaryawan}/edit', [JadwalKaryawanController::class, 'edit'])->name('jadwalkaryawan.edit');
-Route::put('/jadwal/{jadwalKaryawan}', [JadwalKaryawanController::class, 'update'])->name('jadwalkaryawan.update');
+    Route::get('/jadwal', [JadwalKaryawanController::class, 'index'])->name('jadwalkaryawan.index');
+    Route::delete('/jadwal', [JadwalKaryawanController::class, 'destroy'])->name('jadwalkaryawan.destroy');
+    Route::get('/jadwal/tambah', [JadwalKaryawanController::class, 'create'])->name('jadwalkaryawan.create');
+    Route::post('/jadwal/tambah', [JadwalKaryawanController::class, 'store'])->name('jadwalkaryawan.store');
+    Route::get('/jadwal/{jadwalKaryawan}/edit', [JadwalKaryawanController::class, 'edit'])->name('jadwalkaryawan.edit');
+    Route::put('/jadwal/{jadwalKaryawan}', [JadwalKaryawanController::class, 'update'])->name('jadwalkaryawan.update');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -29,9 +29,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/bookingpilih', function () {
-    return view('bookingPilih');
-})->name('bookingpilih');
+Route::get('/bookingjadwal', function () {
+    return view('bookingJadwal');
+})->name('bookingjadwal');
+
+Route::get('/bookingkonfirmasi', function () {
+    return view('bookingKonfirmasi');
+})->name('bookingkonfirmasi');
 
 Route::middleware(['auth', 'verified', 'role:customer|admin'])->group(function () {
     Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');

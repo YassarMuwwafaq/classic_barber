@@ -218,9 +218,11 @@
                     <h1 style="color: #a3353b">Atur jadwal Cukurmu Sekarang</h1>
                 </div>
                 <div class="div">
-                    <button type="button" class="btn-bookingnow">
+                    <button type="button" class="btn-bookingnow"
+                        onclick="window.location.href='{{ route('bookingbarber') }}'">
                         BOOKING SEKARANG
                     </button>
+
                 </div>
             </div>
         </div>
@@ -243,7 +245,9 @@
                                     <h3>LAYANAN PELURUS DAN VOLUME RAMBUT</h3>
                                 </div>
                                 <div class="button mt-3">
-                                    <button type="button" class="btn-perm">BOOKING SEKARANG</button>
+                                    <button type="button" class="btn-perm"
+                                        onclick="window.location.href='{{ route('bookingbarber') }}'">BOOKING
+                                        SEKARANG</button>
                                 </div>
                             </div>
                         </div>

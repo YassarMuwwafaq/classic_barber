@@ -11,6 +11,7 @@ use App\Http\Controllers\PilihBarberController;
 use App\Http\Controllers\PilihHairArtistController;
 use App\Http\Controllers\PilihLayananController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GalleryController;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/course', function () {
+    return view('course');
+});
+
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+
 
 Route::get('/bookingpilih', function () {
     return view('bookingPilih');

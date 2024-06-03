@@ -9,13 +9,16 @@
                 <div class="card-artis">
                     <img src="{{ asset('storage/' . $karyawan->foto) }}" alt="{{ $karyawan->nama }}">
                     <h5>{{ $karyawan->nama }}</h5>
-                    <p>Rp {{ number_format($karyawan->layanans->where('id', $layanan->id)->first()->pivot->harga, 0, ',', '.') }}</p>
+                    <p>Rp
+                        {{ number_format($karyawan->layanans->where('id', $layanan->id)->first()->pivot->harga, 0, ',', '.') }}
+                    </p>
                 </div>
             @endforeach
         </div>
         {{-- panah undo --}}
         <div class="btn-panah">
-            <a href="{{ route('pilihlayanan', ['barber_id' => $barber->id]) }}"><img src="{{ asset('assets/panah-undo.svg') }}" alt=""></a>
+            <a href="{{ route('pilihlayanan', ['barber_id' => $barber->id]) }}"><img
+                    src="{{ asset('assets/panah-undo.svg') }}" alt=""></a>
         </div>
     </div>
 @endsection

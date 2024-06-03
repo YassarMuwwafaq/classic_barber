@@ -37,12 +37,6 @@ Route::get('/course', function () {
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 
-Route::get('/course', function () {
-    return view('course');
-});
-
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-
 
 Route::get('/bookingjadwal', function () {
     return view('bookingJadwal');

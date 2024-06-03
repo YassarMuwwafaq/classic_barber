@@ -20,7 +20,8 @@
     <div class="navbar">
         <div class="container">
             <a href=""><img src="{{ asset('assets/logo.svg') }}" alt=""></a>
-            <div class="status">{{ Auth::user()->name }} | {{ date('d F Y') }} | {{ date('H:i') }}</div>
+            <div class="status">nama saya</div>
+            {{-- <div class="status">{{ Auth::user()->name }} | {{ date('d F Y') }} | {{ date('H:i') }}</div> --}}
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
@@ -31,10 +32,10 @@
 
     @yield('content')
 
-    <div class="footer">
+    {{-- <div class="footer">
         <div class="img"><img src="{{ asset('assets/footerLogo.svg') }}" alt=""></div>
         <p>@CLASSICBARBERS</p>
-    </div>
+    </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

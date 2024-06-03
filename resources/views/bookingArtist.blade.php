@@ -12,6 +12,10 @@
                     <p>Rp
                         {{ number_format($karyawan->layanans->where('id', $layanan->id)->first()->pivot->harga, 0, ',', '.') }}
                     </p>
+                    <div class="btn-pilih">
+                        <a href="">Pilih</a>
+                        <a href="">Detail</a>
+                    </div>
                 </div>
             @endforeach
         </div>

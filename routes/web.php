@@ -37,9 +37,20 @@ Route::get('/course', function () {
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 
-Route::get('/bookingpilih', function () {
-    return view('bookingPilih');
-})->name('bookingpilih');
+Route::get('/course', function () {
+    return view('course');
+});
+
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+
+
+Route::get('/bookingjadwal', function () {
+    return view('bookingJadwal');
+})->name('bookingjadwal');
+
+Route::get('/bookingkonfirmasi', function () {
+    return view('bookingKonfirmasi');
+})->name('bookingkonfirmasi');
 
 Route::middleware(['auth', 'verified', 'role:customer|admin'])->group(function () {
     Route::get('/bookingbarber', [PilihBarberController::class, 'index'])->name('bookingbarber');

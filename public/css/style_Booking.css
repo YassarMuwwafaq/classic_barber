@@ -202,6 +202,26 @@
     color: white;
 }
 
+.card-artis img {
+    max-width: 150px;
+}
+
+.btn-pilih a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    background-color: #434b69;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn-pilih a:hover {
+    background-color: transparent;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
 .card-artis:hover {
     transform: scale(1.05);
     transition: 0.3s;
@@ -267,4 +287,78 @@
     background-color: #d9d9d9ba;
     color: var(--Black, #262626);
     box-shadow: 0 0 5px 0 white;
+}
+
+/* style booking jadwal */
+.cabang-jadwal {
+    width: 70%;
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
+    padding: 20px 25px;
+}
+
+.nama-bulan {
+    display: flex;
+    justify-content: center;
+}
+
+.page-link {
+    color: black;
+}
+
+.jadwal {
+    display: block;
+    max-height: 45vh; /* Atur tinggi maksimal sesuai kebutuhan Anda */
+    overflow-y: auto; /* Menambahkan scroll vertikal */
+}
+
+.jadwal-detail {
+    padding-bottom: 25px;
+}
+
+.btn-jadwal a {
+    text-decoration: none;
+    color: black;
+    display: inline;
+    padding: 5px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.btn-jadwal a:hover {
+    background-color: #434b69;
+    color: white;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* style konfirmasi */
+.cabang-konfirmasi {
+    width: 85%;
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
+    padding: 20px 25px;
+}
+
+.detail-customer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.konfirmasi {
+    display: block;
+    text-align: end;
+}
+
+.btn-konfirmasi {
+    background-color: #434b69;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+.cabang-konfirmasi .form-control {
+    width: 30%;
 }

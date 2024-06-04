@@ -27,26 +27,36 @@ a.nav-link {
     z-index: 110;
 }
 
+.navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
+    color: #a3353b;
+}
+
 ul,
 li {
     gap: 5px;
 }
 
-.btn-book{
+.dropdown-item:hover {
+    color: #a3353b !important;
+}
+
+.btn-book {
     display: flex;
-    width: 180px;
-    height: 56px;
+    width: 90px;
+    height: 40px;
     padding: 10px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     border-radius: 11px;
-    background: #a3353b;
-    color: #fff;
+    border: #a3353b 2px solid;
+    background: transparent;
+    color: #a3353b;
     text-align: center;
     font-family: "Noto Serif Gujarati";
-    font-size: 25px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -57,8 +67,8 @@ li {
 /* Tombol Login */
 .btn-login {
     display: flex;
-    width: 180px;
-    height: 56px;
+    width: 90px;
+    height: 40px;
     padding: 10px;
     justify-content: center;
     align-items: center;
@@ -69,25 +79,37 @@ li {
     color: #fff;
     text-align: center;
     font-family: "Noto Serif Gujarati";
-    font-size: 25px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.25px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.auth {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0;
+    color: #a3353b;
+}
 
 /* Efek hover saat kursor di atas tombol */
-.btn-book:hover, .btn-login:hover {
-    background-color: #87282e;
+.btn-book:hover,
+.btn-login:hover {
+    background-color: #d6878c;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-color: #fff;
     border: 2px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(1px);
 }
 
 /* Efek klik saat tombol ditekan */
-.btn-book:active, .btn-login:active {
+.btn-book:active,
+.btn-login:active {
     transform: translateY(2px);
 }
 

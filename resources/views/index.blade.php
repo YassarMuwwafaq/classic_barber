@@ -42,75 +42,12 @@
 </head>
 
 <body>
-    <header id="home">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent ;font-size:12px;">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/logo.svg" class="logoNav" alt="Logo" width="130" height="130"
-                        class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarNavDropdown">
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="#home">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">SERVICES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#product">PRODUCT</a>
-                        </li>
-                        <li class="nav-item dropdown info-link-dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                INFORMATION
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">COURSE</a></li>
-                                <li><a class="dropdown-item" href="#">FRANCHISE</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">OUR GALLERY</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">CONTACT US</a>
-                        </li>
-                        @auth
-                        <li class="nav-item dropdown info-link-dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
-                                </form>
-                            </ul>
-                        </li>
-                    @endauth
-                    </ul>
-                    <div class="btnBook d-flex justify-content-center">
-                        @guest
-                        <a class="btn-login me-2" href="{{ route('login') }}">LOGIN</a>
-                        @endguest
-                        <a class="btn-book me-2" href="{{ route('bookingbarber') }}">BOOKING</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
+    @include('components.navbar')
     <main>
         <!-- jumbotron -->
         <div class="jumbotron jumbotron-fluid jumbotron-full position-relative ">
             <div class="color-overlay d-flex justify-content-center align-items-center" data-aos="fade-up"
-                data-aos-duration="3000">
+                data-aos-duration="2000">
             </div>
         </div>
 
@@ -153,10 +90,10 @@
                                 DALAM MENGANGKAT DERAJAT PROFESI BARBER. DENGAN MEMILIH FORTUNATO CLASSIC BARBERS ANDA
                                 TURUT BERKONTRIBUSI PADA PENINGKATAN STANDAR KEPROFESIAN BARBERSHOP DI INDONESIA</p>
                         </div>
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="zoom-in"
-                            data-aos-duration="3000">
-                            <img src="assets/imgKenapa.png" alt="imgKenapa" class="img-fluid img-mobile"
-                                width="600" height="400">
+                        <div class="col-lg-6  d-flex align-items-center justify-content-center" data-aos="zoom-in"
+                            data-aos-duration="2000">
+                            <img src="assets/imgKenapa.png" alt="imgKenapa" class="img-fluid img-mobile" width="600"
+                                height="400">
                         </div>
                     </div>
                 </div>
@@ -179,7 +116,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
                         <div class="card bg-transparent text-white " style="width: 18rem;">
                             <img src="assets/imgHaircut.png" class="card-img-top" data-aos="zoom-out-up"
-                                data-aos="zoom-out-up" data-aos-duration="3000" alt="imgHaircut" width="184"
+                                data-aos="zoom-in-up" data-aos-duration="3000" alt="imgHaircut" width="184"
                                 height="218">
                             <div class="card-body ">
                                 <h5 class="card-title">HAIRCUT</h5>
@@ -193,7 +130,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
                         <div class="card bg-transparent text-white " style="width: 18rem;">
-                            <img src="assets/imgColoring.png" class="card-img-top" data-aos="zoom-out-up"
+                            <img src="assets/imgColoring.png" class="card-img-top" data-aos="zoom-in-up"
                                 data-aos-duration="3000" alt="imgHaircut" width="184" height="218">
                             <div class="card-body ">
                                 <h5 class="card-title">COLORING</h5>
@@ -205,7 +142,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
                         <div class="card bg-transparent text-white " style="width: 18rem;">
-                            <img src="assets/imgHairsolution.png" class="card-img-top" data-aos="zoom-out-up"
+                            <img src="assets/imgHairsolution.png" class="card-img-top" data-aos="zoom-in-up"
                                 data-aos-duration="3000" alt="imgHaircut" width="184" height="218">
                             <div class="card-body ">
                                 <h5 class="card-title">HAIR SOLUTION</h5>
@@ -218,7 +155,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
                         <div class="card bg-transparent text-white " style="width: 18rem;">
-                            <img src="assets/imgBeardcut.png" class="card-img-top" data-aos="zoom-out-up"
+                            <img src="assets/imgBeardcut.png" class="card-img-top" data-aos="zoom-in-up"
                                 data-aos-duration="3000" alt="imgHaircut" width="184" height="218">
                             <div class="card-body ">
                                 <h5 class="card-title">BEARDCUT</h5>
@@ -230,7 +167,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
                         <div class="card bg-transparent text-white " style="width: 18rem;">
-                            <img src="assets/imgPerming.png" class="card-img-top" data-aos="zoom-out-up"
+                            <img src="assets/imgPerming.png" class="card-img-top" data-aos="zoom-in-up"
                                 data-aos-duration="3000" alt="imgHaircut" width="184" height="218">
                             <div class="card-body ">
                                 <h5 class="card-title">PERMING</h5>
@@ -251,14 +188,14 @@
                 <div class="carousel-item active">
                     <img src="assets/bg5.png" class="d-block w-100" alt="lokasi">
                 </div>
-                <div class="carousel-item">
+                {{-- <div class="carousel-item">
                     <img src="assets/bg5.png" class="d-block w-100 h-100" alt="lokasi">
                 </div>
                 <div class="carousel-item">
                     <img src="assets/bg5.png" class="d-block w-100" alt="lokasi">
-                </div>
+                </div> --}}
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -267,7 +204,7 @@
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-            </button>
+            </button> --}}
         </div>
 
         <!-- booking cukur -->
@@ -281,9 +218,11 @@
                     <h1 style="color: #a3353b">Atur jadwal Cukurmu Sekarang</h1>
                 </div>
                 <div class="div">
-                    <button type="button" class="btn-bookingnow">
+                    <button type="button" class="btn-bookingnow"
+                        onclick="window.location.href='{{ route('bookingbarber') }}'">
                         BOOKING SEKARANG
                     </button>
+
                 </div>
             </div>
         </div>
@@ -306,7 +245,9 @@
                                     <h3>LAYANAN PELURUS DAN VOLUME RAMBUT</h3>
                                 </div>
                                 <div class="button mt-3">
-                                    <button type="button" class="btn-perm">BOOKING SEKARANG</button>
+                                    <button type="button" class="btn-perm"
+                                        onclick="window.location.href='{{ route('bookingbarber') }}'">BOOKING
+                                        SEKARANG</button>
                                 </div>
                             </div>
                         </div>
@@ -315,30 +256,29 @@
 
                     {{-- produk --}}
                     <div class="container produk d-flex justify-content-center" id="product">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                        <div class="row ">
+                            <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center">
                                 <div class="card bg-transparent" style="width: 18rem;">
                                     <img src="assets/pomade.png" alt="pomade" class="card-img-top MX-auto"
-                                        data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine"
-                                        alt="pomade">
+                                        data-aos="zoom-in-right" data-aos-duration="3000" alt="pomade">
                                     <div class="card-body">
                                         <h5 class="card-title text-center text-white">POMADE</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center">
                                 <div class="card bg-transparent" style="width: 18rem;">
                                     <img src="assets/powder.png" alt="powder" class="card-img-top MX-auto"
-                                        data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">
+                                        data-aos="zoom-in-down" data-aos-duration="3000">
                                     <div class="card-body">
                                         <h5 class="card-title text-center text-white">POWDER</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex justify-content-center">
                                 <div class="card bg-transparent" style="width: 18rem;">
                                     <img src="assets/clay.png" class="card-img-top MX-auto" alt="powder"
-                                        data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">
+                                        data-aos="zoom-in-left" data-aos-duration="3000">
                                     <div class="card-body">
                                         <h5 class="card-title text-center text-white">CLAY</h5>
                                     </div>
@@ -371,12 +311,7 @@
             </div>
         </div>
 
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  position-relative"
-            style="background: #434B69">
-            <div class="col-12 d-flex align-items-center justify-content-center text-center text-white">
-                <h3>Copyright 2024 All Right Reserved by CV.FORTUNATO CLASSIC BARBERS </h3>
-            </div>
-        </footer>
+        @include('components.footer')
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

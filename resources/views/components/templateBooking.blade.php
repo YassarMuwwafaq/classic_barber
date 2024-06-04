@@ -20,8 +20,16 @@
     <div class="navbar">
         <div class="container">
             <a href=""><img src="{{ asset('assets/logo.svg') }}" alt=""></a>
-            <div class="status">nama saya</div>
-            {{-- <div class="status">{{ Auth::user()->name }} | {{ date('d F Y') }} | {{ date('H:i') }}</div> --}}
+            <div class="status">
+                {{ Auth::user()->name }} | 
+                @php
+                    setlocale(LC_TIME, 'id_ID.utf8');
+                    $now = new DateTime('now', new DateTimeZone('Asia/Jakarta'));
+                    $dateString = strftime('%d %B %Y', $now->getTimestamp());
+                    $timeString = $now->format('H:i');
+                @endphp
+                {{ $dateString }} | {{ $timeString }}
+            </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
@@ -29,6 +37,7 @@
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</button>
         </div>
     </div>
+    
 
     @yield('content')
 

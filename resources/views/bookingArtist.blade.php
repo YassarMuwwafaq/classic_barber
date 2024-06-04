@@ -13,7 +13,7 @@
                         {{ number_format($karyawan->layanans->where('id', $layanan->id)->first()->pivot->harga, 0, ',', '.') }}
                     </p>
                     <div class="btn-pilih">
-                        <a href="">Pilih</a>
+                        <a href="{{ route('bookingjadwal', ['barber_id' => $barber->id, 'layanan_id' => $layanan->id, 'karyawan_id' => $karyawan->id]) }}">Pilih</a>
                         <a href="">Detail</a>
                     </div>
                 </div>

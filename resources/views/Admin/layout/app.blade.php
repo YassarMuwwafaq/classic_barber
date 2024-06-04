@@ -148,11 +148,19 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('user-adminpage') }}">
+                    <a class="nav-link" href="{{ route('customer.index') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-account"></i>
                         </span>
-                        <span class="menu-title">User</span>
+                        <span class="menu-title">Customer</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="{{ route('databooking.index') }}">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-receipt"></i>
+                        </span>
+                        <span class="menu-title">Booking</span>
                     </a>
                 </li>
                 

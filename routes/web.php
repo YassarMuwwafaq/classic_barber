@@ -1,14 +1,18 @@
 <?php
 
 use App\Http\Controllers\BarberController;
+use App\Http\Controllers\BookingAdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataCustomerController;
 use App\Http\Controllers\JadwalKaryawanController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\KonfirmasiBookingController;
 use App\Http\Controllers\layananBarberController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LayananKaryawanController;
 use App\Http\Controllers\PilihBarberController;
 use App\Http\Controllers\PilihHairArtistController;
+use App\Http\Controllers\PilihJadwalController;
 use App\Http\Controllers\PilihLayananController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Karyawan;
@@ -27,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/bookingjadwal', function () {
     return view('bookingJadwal');
@@ -44,6 +48,12 @@ Route::middleware(['auth', 'verified', 'role:customer|admin'])->group(function (
 
     Route::get('/bookingbarber/{barber_id}/{layanan_id}', [PilihHairArtistController::class, 'index'])->name('bookingartist');
 
+    Route::get('/bookingjadwal/{barber_id}/{layanan_id}/{karyawan_id}', [PilihJadwalController::class, 'index'])->name('bookingjadwal');
+
+    Route::get('/konfirmasi/{barber_id}/{layanan_id}/{karyawan_id}/{tanggal}/{waktu}', [KonfirmasiBookingController::class, 'index'])->name('konfirmasiBooking');
+    Route::post('/konfirmasi/store', [KonfirmasiBookingController::class, 'store'])->name('konfirmasiBooking.store');
+
+
     Route::get('/bookingartist-detail', function () {
         return view('bookingArtistDetail');
     })->name('bookingartist-detail');
@@ -51,10 +61,6 @@ Route::middleware(['auth', 'verified', 'role:customer|admin'])->group(function (
 
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/dashboardadmin', [DashboardController::class, 'index'])->name('dashboardadmin');
-
-    Route::get('/user', function () {
-        return view('admin.user.index');
-    })->name('user-adminpage');
 
     Route::get('/barber', [BarberController::class, 'index'])->name('barber.index');
     Route::delete('/barber', [BarberController::class, 'destroy'])->name('barber.destroy');
@@ -97,6 +103,11 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::post('/jadwal/tambah', [JadwalKaryawanController::class, 'store'])->name('jadwalkaryawan.store');
     Route::get('/jadwal/{jadwalKaryawan}/edit', [JadwalKaryawanController::class, 'edit'])->name('jadwalkaryawan.edit');
     Route::put('/jadwal/{jadwalKaryawan}', [JadwalKaryawanController::class, 'update'])->name('jadwalkaryawan.update');
+
+    Route::get('/customer', [DataCustomerController::class, 'index'])->name('customer.index');
+    Route::delete('/customer', [DataCustomerController::class, 'destroy'])->name('customer.destroy');
+
+    Route::get('/booking', [BookingAdminController::class, 'index'])->name('databooking.index');
 });
 
 

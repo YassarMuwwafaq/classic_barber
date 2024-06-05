@@ -41,6 +41,7 @@
         top: 20px;
         left: 20px;
         cursor: pointer;
+        width: min-content;
     }
 
     p {

@@ -61,6 +61,7 @@ class KonfirmasiBookingController extends Controller
             'tanggal' => 'required|date',
             'waktu' => 'required',
             'no_hp' => 'required|numeric',
+            'customer_name' => 'required'
         ]);
 
         // Simpan data booking

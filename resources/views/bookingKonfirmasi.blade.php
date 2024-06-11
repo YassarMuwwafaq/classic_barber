@@ -24,8 +24,15 @@
 
                 <label for="customer_name"><b>Customer :</b></label>
                 <input type="text" id="customer_name" name="customer_name" class="form-control" value="{{ Auth::user()->name ?? '' }}">
+                @if ($errors->has('customer_name'))
+                    <div class="text-danger">{{ $errors->first('customer_name') }}</div>
+                @endif
+
                 <label for="no_hp"><b>No. HP :</b></label>
                 <input type="text" id="no_hp" name="no_hp" class="form-control" placeholder="Masukkan No. HP" required>
+                @if ($errors->has('no_hp'))
+                    <div class="text-danger">{{ $errors->first('no_hp') }}</div>
+                @endif
 
                 <table class="table">
                     <thead>
@@ -64,23 +71,45 @@
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
     <script type="text/javascript">
         var payButton = document.getElementById('pay-button');
-        payButton.addEventListener('click', function () {
-            window.snap.pay('{{ $snapToken }}', {
-                onSuccess: function(result){
-                    document.getElementById('payment-form').submit();
-                },
-                onPending: function(result){
-                    alert("Menunggu pembayaran Anda!");
-                    console.log(result);
-                },
-                onError: function(result){
-                    alert("Pembayaran gagal!");
-                    console.log(result);
-                },
-                onClose: function(){
-                    alert('Anda menutup jendela tanpa menyelesaikan pembayaran');
-                }
-            });
+        payButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            
+            var form = document.getElementById('payment-form');
+            var customerName = document.getElementById('customer_name');
+            var noHp = document.getElementById('no_hp');
+            var valid = true;
+
+            if (customerName.value.trim() === '') {
+                alert('Nama harus diisi');
+                valid = false;
+            }
+
+            if (noHp.value.trim() === '') {
+                alert('No. Telepon harus diisi');
+                valid = false;
+            } else if (!/^\d+$/.test(noHp.value.trim())) {
+                alert('No. Telepon harus berupa angka');
+                valid = false;
+            }
+
+            if (valid) {
+                window.snap.pay('{{ $snapToken }}', {
+                    onSuccess: function(result){
+                        form.submit();
+                    },
+                    onPending: function(result){
+                        alert("Menunggu pembayaran Anda!");
+                        console.log(result);
+                    },
+                    onError: function(result){
+                        alert("Pembayaran gagal!");
+                        console.log(result);
+                    },
+                    onClose: function(){
+                        alert('Anda menutup jendela tanpa menyelesaikan pembayaran');
+                    }
+                });
+            }
         });
     </script>
 @endsection

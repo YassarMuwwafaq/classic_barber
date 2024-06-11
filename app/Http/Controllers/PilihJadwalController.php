@@ -35,18 +35,29 @@ class PilihJadwalController extends Controller
     $previousDate = (clone $currentDate)->subMonth();
     $nextDate = (clone $currentDate)->addMonth();
 
-    // Ambil jadwal booking yang sudah ada untuk bulan dan tahun tertentu
-    $jadwalBookings = Booking::whereYear('tanggal', $currentYear)
-        ->whereMonth('tanggal', $currentMonth)
-        ->pluck('waktu')
-        ->toArray();
+    // // Ambil jadwal booking yang sudah ada untuk bulan dan tahun tertentu
+    // $jadwalBookings = Booking::whereYear('tanggal', $currentYear)
+    //     ->whereMonth('tanggal', $currentMonth)
+    //     ->pluck('waktu')
+    //     ->toArray();
+
+    // Ambil jadwal booking yang sudah ada untuk hair artist tertentu di bulan dan tahun tertentu
+    $jadwalBookings = Booking::where('hair_artist', $karyawan->nama)
+    ->whereYear('tanggal', $currentYear)
+    ->whereMonth('tanggal', $currentMonth)
+    ->get();
 
     // Buat array untuk menyimpan waktu yang sudah dibooking
     $jadwalBooked = [];
 
     // Tambahkan waktu yang sudah dibooking ke dalam array
-    foreach ($jadwalBookings as $jadwalBooking) {
-        $jadwalBooked[] = Carbon::parse($jadwalBooking)->format('H:i');
+    foreach ($jadwalBookings as $booking) {
+        $tanggal = $booking->tanggal;
+        $waktu = Carbon::parse($booking->waktu)->format('H:i');
+        if (!isset($jadwalBooked[$tanggal])) {
+            $jadwalBooked[$tanggal] = [];
+        }
+        $jadwalBooked[$tanggal][] = $waktu;
     }
 
     return view('bookingJadwal', compact('barber', 'layanan', 'karyawan', 'jadwals', 'currentDate', 'previousDate', 'nextDate', 'jadwalBooked'));

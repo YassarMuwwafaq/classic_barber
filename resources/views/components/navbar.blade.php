@@ -29,8 +29,8 @@
                         </a>
                         <ul class="dropdown-menu bg-transparent" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item text-white" href="/course">COURSE</a></li>
-                            <li><a class="dropdown-item text-white" href="/#">FRANCHISE</a></li>
-                            <li><a class="dropdown-item text-white" href="/#">OUR STORY</a></li>
+                            <li><a class="dropdown-item text-white" href="/franchise">FRANCHISE</a></li>
+                            <li><a class="dropdown-item text-white" href="/ourstory">OUR STORY</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

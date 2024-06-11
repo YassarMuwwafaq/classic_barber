@@ -37,6 +37,15 @@ Route::get('/', function () {
 Route::get('/course', function () {
     return view('course');
 });
+Route::get('/ourstory', function () {
+    return view('ourstory');
+});
+Route::get('/franchise', function () {
+    return view('franchise');
+});
+Route::get('/infoCourse', function () {
+    return view('infoCourse');
+});
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 

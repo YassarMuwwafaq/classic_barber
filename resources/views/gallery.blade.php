@@ -67,7 +67,7 @@
         </div>
 
         <div class="beforeAfter container-fluid d-flex align-items-center justify-content-center"
-            style="background-image: url('assets/gallery/beforeAfter.png'); background-size: cover; background-position: center; background-repeat: no-repeat; height:250px">
+            style="background-image: url('assets/gallery/beforeAfter.png'); background-size: cover; background-position: center; background-repeat: no-repeat; height:265px">
             <div class="row rowtitle">
                 <h3 class="text-white">Before and After <span class="text-bold">Haircut</span></h3>
             </div>

@@ -34,7 +34,7 @@ class LayananBarberController extends Controller
             ];
         }
 
-        return view('admin.LayananBarber.index', ['barbers' => $result]);
+        return view('Admin.LayananBarber.index', ['barbers' => $result]);
     }
 
     /**
@@ -47,7 +47,7 @@ class LayananBarberController extends Controller
 
         // Ambil semua data dari tabel Layanan
         $layanans = Layanan::all();
-        return view('admin.LayananBarber.tambah', ['barbers' => $barbers, 'layanans' => $layanans]);
+        return view('Admin.LayananBarber.tambah', ['barbers' => $barbers, 'layanans' => $layanans]);
     }
 
     /**
@@ -92,7 +92,7 @@ class LayananBarberController extends Controller
         $layanans = Layanan::all();
         $selectedLayanans = LayananBarber::where('barber_id', $barber_id)->pluck('layanan_id')->toArray();
 
-        return view('admin.LayananBarber.edit', compact('barber', 'layanans', 'selectedLayanans'));
+        return view('Admin.LayananBarber.edit', compact('barber', 'layanans', 'selectedLayanans'));
     }
 
     public function update(Request $request, $barber_id)

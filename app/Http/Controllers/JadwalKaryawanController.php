@@ -15,7 +15,7 @@ class JadwalKaryawanController extends Controller
     {
         //
         $jadwalKaryawan = JadwalKaryawan::with('karyawan.barber')->get();
-        return view('admin.jadwalkaryawan.index', compact('jadwalKaryawan'));
+        return view('Admin.JadwalKaryawan.index', compact('jadwalKaryawan'));
     }
 
     /**
@@ -25,7 +25,7 @@ class JadwalKaryawanController extends Controller
     {
         //
         $karyawans = Karyawan::all();
-        return view('admin.jadwalkaryawan.tambah', compact('karyawans'));
+        return view('Admin.JadwalKaryawan.tambah', compact('karyawans'));
     }
 
     /**
@@ -69,7 +69,7 @@ class JadwalKaryawanController extends Controller
     {
         $jadwalKaryawan = JadwalKaryawan::findOrFail($id);
         $karyawans = Karyawan::all();
-        return view('admin.jadwalkaryawan.edit', compact('jadwalKaryawan', 'karyawans'));
+        return view('Admin.JadwalKaryawan.edit', compact('jadwalKaryawan', 'karyawans'));
     }
 
     /**

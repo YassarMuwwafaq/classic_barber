@@ -18,7 +18,7 @@ class LayananController extends Controller
         // Ambil semua pengguna dengan peran 'pengguna'
         $layanan = Layanan::latest()->get();
 
-        return view('admin.layanan.index', ['layanan' => $layanan]);
+        return view('Admin.Layanan.index', ['layanan' => $layanan]);
     }
 
     /**
@@ -27,7 +27,7 @@ class LayananController extends Controller
     public function create()
     {
         //
-        return view('admin.layanan.tambah');
+        return view('Admin.Layanan.tambah');
     }
 
     /**
@@ -76,7 +76,7 @@ class LayananController extends Controller
     public function edit(Layanan $layanan)
     {
         //
-        return view('admin.layanan.edit', compact('layanan'));
+        return view('Admin.Layanan.edit', compact('layanan'));
     }
 
     /**

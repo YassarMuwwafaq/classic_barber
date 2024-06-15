@@ -15,7 +15,7 @@ class BarberController extends Controller
     {
         $barber = Barber::latest()->get();
 
-        return view('admin.barber.index', ['barber' => $barber]);
+        return view('Admin.barber.index', ['barber' => $barber]);
     }
 
     /**
@@ -23,7 +23,7 @@ class BarberController extends Controller
      */
     public function create()
     {
-        return view('admin.barber.tambah');
+        return view('Admin.barber.tambah');
     }
 
     /**
@@ -68,7 +68,7 @@ class BarberController extends Controller
     public function edit(Barber $barber)
     {
         //
-        return view('admin.barber.edit', compact('barber'));
+        return view('Admin.barber.edit', compact('barber'));
     }
 
     /**

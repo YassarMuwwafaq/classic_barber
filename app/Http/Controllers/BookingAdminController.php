@@ -11,6 +11,6 @@ class BookingAdminController extends Controller
     public function index()
     {
         $bookings = Booking::latest()->get();
-        return view('admin.booking.index', ['bookings'=> $bookings]);
+        return view('Admin.booking.index', ['bookings'=> $bookings]);
     }
 }

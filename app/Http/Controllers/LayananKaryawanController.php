@@ -20,7 +20,7 @@ class LayananKaryawanController extends Controller
             return $karyawan->Layanans->isNotEmpty();
         });
 
-        return view('admin.LayananKaryawan.index', compact('karyawans'));
+        return view('Admin.LayananKaryawan.index', compact('karyawans'));
     }
 
     /**
@@ -34,7 +34,7 @@ class LayananKaryawanController extends Controller
 
         // Ambil semua data dari tabel Layanan
         $layanans = Layanan::all();
-        return view('admin.LayananKaryawan.tambah', ['karyawans' => $karyawans, 'layanans' => $layanans]);
+        return view('Admin.LayananKaryawan.tambah', ['karyawans' => $karyawans, 'layanans' => $layanans]);
     }
 
     /**
@@ -91,7 +91,7 @@ class LayananKaryawanController extends Controller
     $layanans = Layanan::all();
 
     // Return view dengan data yang diperlukan
-    return view('admin.LayananKaryawan.edit', compact('karyawan', 'layanans'));
+    return view('Admin.LayananKaryawan.edit', compact('karyawan', 'layanans'));
         
     }
 

@@ -12,7 +12,7 @@ class DataCustomerController extends Controller
         // Ambil semua pengguna dengan peran 'customer'
         $user = User::role('customer')->latest()->get();
  
-        return view('admin.user.index', ['user' => $user]);
+        return view('Admin.user.index', ['user' => $user]);
      }
  
      public function destroy(Request $request)

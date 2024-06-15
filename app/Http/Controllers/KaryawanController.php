@@ -18,7 +18,7 @@ class KaryawanController extends Controller
         //
         $karyawan = Karyawan::latest()->get();
 
-        return view('admin.karyawan.index', ['karyawan' => $karyawan]);
+        return view('Admin.karyawan.index', ['karyawan' => $karyawan]);
     }
 
     /**
@@ -29,7 +29,7 @@ class KaryawanController extends Controller
         // Ambil semua data dari tabel Barber
         $barbers = Barber::all();
         
-        return view('admin.karyawan.tambah', ['barbers' => $barbers]);
+        return view('Admin.karyawan.tambah', ['barbers' => $barbers]);
     }
 
     /**
@@ -92,7 +92,7 @@ class KaryawanController extends Controller
     {
         //
         $barbers = Barber::all();
-        return view('admin.karyawan.edit', compact('karyawan', 'barbers'));
+        return view('Admin.karyawan.edit', compact('karyawan', 'barbers'));
     }
 
     /**

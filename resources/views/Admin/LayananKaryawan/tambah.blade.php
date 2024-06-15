@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('Admin.layout.app')
 @section('title', 'Tambah Layanan Karyawan')
 @section('content')
     <div class="content-wrapper">

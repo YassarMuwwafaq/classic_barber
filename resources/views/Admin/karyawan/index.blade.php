@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('Admin.layout.app')
 @section('title', 'Karyawan')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" />

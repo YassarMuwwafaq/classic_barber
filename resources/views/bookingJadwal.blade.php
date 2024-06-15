@@ -34,7 +34,7 @@
                         'Friday' => 'Jumat',
                         'Saturday' => 'Sabtu',
                     ];
-
+            
                     $months = [
                         'January' => 'Januari',
                         'February' => 'Februari',
@@ -49,10 +49,11 @@
                         'November' => 'November',
                         'December' => 'Desember',
                     ];
-
+            
                     $noAvailableSchedule = true;
+                    $allJadwalsEmpty = $jadwals->isEmpty();
                 @endphp
-                @if ($jadwals->isEmpty())
+                @if ($allJadwalsEmpty)
                     <p class="text-center">Jadwal Tidak Tersedia</p>
                 @else
                     @foreach ($jadwals as $jadwal)
@@ -60,23 +61,23 @@
                             $tanggal = new DateTime($jadwal->tanggal, new DateTimeZone('Asia/Jakarta'));
                             $currentDate = new DateTime('today', new DateTimeZone('Asia/Jakarta')); // Today without time part
                             $currentTime = new DateTime('now', new DateTimeZone('Asia/Jakarta')); // Current time
-
+            
                             if ($tanggal < $currentDate) {
                                 continue; // Skip dates that have already passed
                             }
-
+            
                             $dayName = $days[$tanggal->format('l')];
                             $monthName = $months[$tanggal->format('F')];
-
+            
                             $availableTimes = [];
                             $start = strtotime($jadwal->waktu_mulai);
                             $end = strtotime($jadwal->waktu_selesai);
                             $interval = 60 * 60; // 1 jam
-
+            
                             for ($time = $start; $time < $end; $time += $interval) {
                                 $jam = date('H:i', $time);
                                 $slotDateTime = new DateTime($jadwal->tanggal . ' ' . $jam, new DateTimeZone('Asia/Jakarta'));
-
+            
                                 // Check if the time slot is booked
                                 if (!isset($jadwalBooked[$jadwal->tanggal]) || !in_array($jam, $jadwalBooked[$jadwal->tanggal])) {
                                     // Check if the time slot is not in the past
@@ -86,7 +87,7 @@
                                 }
                             }
                         @endphp
-
+            
                         @if (count($availableTimes) > 0)
                             @php
                                 $noAvailableSchedule = false;
@@ -103,13 +104,12 @@
                             </div>
                         @endif
                     @endforeach
+            
+                    @if ($noAvailableSchedule)
+                        <p class="text-center">Jadwal Tidak Tersedia</p>
+                    @endif
                 @endif
-
-                @if ($noAvailableSchedule)
-                    <p class="text-center">Jadwal Tidak Tersedia</p>
-                @endif
-            </div>
-        </div>
+            </div>            
         <div class="btn-panah">
             <a href="{{ route('bookingartist', ['barber_id' => $barber->id, 'layanan_id' => $layanan->id]) }}">
                 <img src="{{ asset('assets/panah-undo.svg') }}" alt="">

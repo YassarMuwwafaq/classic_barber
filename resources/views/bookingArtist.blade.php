@@ -14,7 +14,7 @@
                     </p>
                     <div class="btn-pilih">
                         <a href="{{ route('bookingjadwal', ['barber_id' => $barber->id, 'layanan_id' => $layanan->id, 'karyawan_id' => $karyawan->id]) }}">Pilih</a>
-                        <a href="">Detail</a>
+                        {{-- <a href="">Detail</a> --}}
                     </div>
                 </div>
             @endforeach

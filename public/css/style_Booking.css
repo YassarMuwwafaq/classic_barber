@@ -188,22 +188,36 @@
 
 /* CSS bookingArtist */
 .cabang-artis {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     width: 100%;
     gap: 5%;
+    flex-wrap: wrap;
 }
 
 .card-artis {
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
     margin: 20px;
     border-radius: 10px;
     color: white;
+    padding: 20px;
 }
 
 .card-artis img {
     max-width: 150px;
+    height: auto; /* Ensure images scale proportionally */
+}
+
+.card-artis h5, .card-artis p {
+    margin: 10px 0;
+}
+
+.btn-pilih {
+    margin-top: auto; /* Push the button to the bottom */
 }
 
 .btn-pilih a {
@@ -214,6 +228,7 @@
     background-color: #434b69;
     border-radius: 5px;
     margin-top: 10px;
+    padding: 10px 20px; /* Add padding for better button size */
 }
 
 .btn-pilih a:hover {
@@ -225,9 +240,7 @@
 .card-artis:hover {
     transform: scale(1.05);
     transition: 0.3s;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0;
+    box-shadow: 0 0 10px 0; /* Optional: Add box shadow on hover */
 }
 
 /* CSS bookingArtisDetail */
@@ -316,21 +329,46 @@
     padding-bottom: 25px;
 }
 
+.btn-jadwal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .btn-jadwal a {
     text-decoration: none;
     color: black;
-    display: inline;
+    display: inline-block;
     padding: 5px 15px;
     border: 1px solid black;
     border-radius: 10px;
-    margin-right: 20px;
+    transition: 0.3s;
 }
 
 .btn-jadwal a:hover {
     background-color: #434b69;
     color: white;
     transform: scale(1.05);
+}
+
+.btn-jadwal a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
     transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .btn-jadwal {
+        justify-content: center;
+    }
+
+    .btn-jadwal a {
+        margin: 5px;
+    }
 }
 
 /* style konfirmasi */

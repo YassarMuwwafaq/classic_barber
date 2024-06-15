@@ -16,6 +16,6 @@ class DashboardController extends Controller
         $layananCount = Layanan::count();
         $karyawanCount = Karyawan::count();
 
-        return view('Admin.dashboard', compact('barberCount', 'layananCount', 'karyawanCount'));
+        return view('admin.dashboard', compact('barberCount', 'layananCount', 'karyawanCount'));
     }
 }
